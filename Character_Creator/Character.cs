@@ -8,13 +8,21 @@ namespace Character_Creator
 {
     class Character
     {
+        public Character(string race, string chaClass, string name, int level, int str, int dex, int con, int wis, int intel, int cha)
+        {
+            chaScore
+        }
+
+        public Character()
+        {
+
+        }
 
         //Basic character information
         private string chaName;
         private string chaRace;
         private string chaClass;
         private int chaLevel;
-        private string chaAlightment;
 
         //Ability Scores/Modifiers
         private int strScore;
