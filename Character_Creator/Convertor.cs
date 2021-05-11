@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Character_Creator
 {
-    static class Dictionaries
+    static class Convertor
     {
         static public Dictionary<int, int> levelProf = new Dictionary<int, int>()
         {
