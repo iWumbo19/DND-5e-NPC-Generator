@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Character_Creator
 {
-    static class Convertor
+    static class Library
     {
         static public Dictionary<int, int> levelProf = new Dictionary<int, int>()
         {
@@ -81,5 +81,14 @@ namespace Character_Creator
             {"ranger",10 },
             {"barbarian",12 },
         };
+        static public int SkillModMath(int rawScore, bool prof, int profBonus)
+        {
+            int returnScore = scoreMod[rawScore];
+            if (prof == true)
+            {
+                returnScore += profBonus;
+            }
+            return returnScore;
+        }
     }
 }
