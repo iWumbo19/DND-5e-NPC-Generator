@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Character_Creator
 {
+    //NEEDS SUBRACE REDONE
     class Dwarf : Character
     {
         public Dwarf()
         {
-            _chaLevel = 1;
             _conScore += 2;
             _chaSpeed += 25;
             _chaAbilities.Add("Darkvision");
@@ -33,7 +33,7 @@ namespace Character_Creator
             {
                 _chaRace = "Hill Dwarf";
                 _wisScore += 1;
-                _maxHealth += 1 * _chaLevel;
+                _maxHealth += 1;
             }
             if (subRaceRoll == 2)
             {
@@ -45,6 +45,7 @@ namespace Character_Creator
         }
     }
 
+    //NEEDS SUBRACE REDONE
     class Elf : Character
     {
         public Elf()
@@ -92,6 +93,7 @@ namespace Character_Creator
         }
     }
 
+    //NOT DONE
     class Halfling : Character
     {
         public Halfling()
@@ -103,11 +105,7 @@ namespace Character_Creator
             _chaAbilities.Add("Halfling Nimbleness");
             _profLanguages.Add("Common");
             _profLanguages.Add("Halfling");
-            Random rnd = new Random();
-            List<string> halflingSubRace = new List<string>();
-            halflingSubRace.Add("Lightfoot");
-            halflingSubRace.Add("Stout");
-            int subRaceRoll = rnd.Next(halflingSubRace.Count);
+            
 
         }
 

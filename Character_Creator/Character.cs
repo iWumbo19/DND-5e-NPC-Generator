@@ -22,6 +22,7 @@ namespace Character_Creator
         protected string _chaClass;
         protected int _chaLevel;
         protected int _profBonus;
+        protected string _chaBackGround;
 
         //Ability Scores/Modifiers
         protected int _strScore;

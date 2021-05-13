@@ -8,6 +8,7 @@ namespace Character_Creator
 {
     static class Library
     {
+        //Stat Number Translators
         static public Dictionary<int, int> levelProf = new Dictionary<int, int>()
         {
             {1,2 },
@@ -81,6 +82,44 @@ namespace Character_Creator
             {"ranger",10 },
             {"barbarian",12 },
         };
+
+        //Basic PHB Races/Classes
+        static public List<string> raceList = new List<string>()
+        {
+            {"Dwarf" },
+            {"Elf" },
+            {"Halfling" },
+            {"Human" },
+            {"Dragonborn" },
+            {"Gnome" },
+            {"Half-elf" },
+            {"Half-orc" },
+            {"Tiefling" }
+        };
+        static public List<string> classList = new List<string>()
+        {
+            {"Barbarian" },
+            {"Bard" },
+            {"Cleric" },
+            {"Druid" },
+            {"Fighter" },
+            {"Monk" },
+            {"Paladin" },
+            {"Ranger" },
+            {"Rouge" },
+            {"Sorcerer" },
+            {"Warlock" },
+            {"Wizard" }
+        };
+
+        //Lists containing PHB Subraces
+        static public List<string> halflingSubRace = new List<string>()
+        {
+            {"Lightfoot" },
+            {"Stout" }
+        };
+
+        //Lists containing PHB languages
         static public List<string> standardLanguages = new List<string>()
         {
             {"Common" },
@@ -137,6 +176,10 @@ namespace Character_Creator
             Random rnd = new Random();
             int languageRoll = rnd.Next(allLanguages.Count);
             return allLanguages[languageRoll];
+        }
+        static public string RandomHalflingSubRace()
+        {
+
         }
     }
 }
