@@ -65,7 +65,7 @@ namespace Character_Creator
             {29,10 },
             {30,10 },
         };
-        static public Dictionary<string, int> classDie = new Dictionary<string, int>()
+        static public Dictionary<string, int> classHitDie = new Dictionary<string, int>()
         {
             {"sorcerer",6 },
             {"wizard",6 },

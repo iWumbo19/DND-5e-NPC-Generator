@@ -8,88 +8,96 @@ namespace Character_Creator
 {
     class Character
     {
+        //Lists containing proficiencies
+        protected List<string> _profLanguages = new List<string>();
+        protected List<string> _profTools = new List<string>();
+        protected List<string> _profWeapons = new List<string>();
+        protected List<string> _profArmor = new List<string>();
+        protected List<string> _chaResistances = new List<string>();
+        protected List<string> _chaAbilities = new List<string>();
+
         //Basic character information
-        private string _chaName;
-        private string _chaRace;
-        private string _chaClass;
-        private int _chaLevel;
-        private int _profBonus;
+        protected string _chaName;
+        protected string _chaRace;
+        protected string _chaClass;
+        protected int _chaLevel;
+        protected int _profBonus;
 
         //Ability Scores/Modifiers
-        private int _strScore;
-        private int _dexScore;
-        private int _conScore;
-        private int _wisScore;
-        private int _intScore;
-        private int _chaScore;
-        private int _strMod;
-        private int _dexMod;
-        private int _conMod;
-        private int _wisMod;
-        private int _intMod;
-        private int _chaMod;
+        protected int _strScore;
+        protected int _dexScore;
+        protected int _conScore;
+        protected int _wisScore;
+        protected int _intScore;
+        protected int _chaScore;
+        protected int _strMod;
+        protected int _dexMod;
+        protected int _conMod;
+        protected int _wisMod;
+        protected int _intMod;
+        protected int _chaMod;
 
         //Saving Throw Mods
-        private int _strSave;
-        private bool _strProf;
-        private int _dexSave;
-        private bool _dexProf;
-        private int _conSave;
-        private bool _conProf;
-        private int _wisSave;
-        private bool _wisProf;
-        private int _intSave;
-        private bool _intProf;
-        private int _chaSave;
-        private bool _chaProf;
+        protected int _strSave;
+        protected bool _strProf;
+        protected int _dexSave;
+        protected bool _dexProf;
+        protected int _conSave;
+        protected bool _conProf;
+        protected int _wisSave;
+        protected bool _wisProf;
+        protected int _intSave;
+        protected bool _intProf;
+        protected int _chaSave;
+        protected bool _chaProf;
 
         //Skill Modifiers and Proficiencies
-        private int _acroScore;
-        private bool _acroProf;
-        private int _animalScore;
-        private bool _animalProf;
-        private int _arcanaScore;
-        private bool _arcanaProf;
-        private int _athleticsScore;
-        private bool _athleticsProf;
-        private int _deceptionScore;
-        private bool _deceptionProf;
-        private int _historyScore;
-        private bool _historyProf;
-        private int _insightScore;
-        private bool _insightProf;
-        private int _intimidationScore;
-        private bool _intimidationProf;
-        private int _investigationScore;
-        private bool _investigationProf;
-        private int _medicineScore;
-        private bool _medicineProf;
-        private int _natureScore;
-        private bool _natureProf;
-        private int _perceptionScore;
-        private bool _perceptionProf;
-        private int _performanceScore;
-        private bool _performanceProf;
-        private int _persuasionScore;
-        private bool _persuasionProf;
-        private int _religonScore;
-        private bool _religonProf;
-        private int _slieghtScore;
-        private bool _slieghtProf;
-        private int _stealthScore;
-        private bool _stealthProf;
-        private int _survivalScore;
-        private bool _survivalProf;
+        protected int _acroScore;
+        protected bool _acroProf;
+        protected int _animalScore;
+        protected bool _animalProf;
+        protected int _arcanaScore;
+        protected bool _arcanaProf;
+        protected int _athleticsScore;
+        protected bool _athleticsProf;
+        protected int _deceptionScore;
+        protected bool _deceptionProf;
+        protected int _historyScore;
+        protected bool _historyProf;
+        protected int _insightScore;
+        protected bool _insightProf;
+        protected int _intimidationScore;
+        protected bool _intimidationProf;
+        protected int _investigationScore;
+        protected bool _investigationProf;
+        protected int _medicineScore;
+        protected bool _medicineProf;
+        protected int _natureScore;
+        protected bool _natureProf;
+        protected int _perceptionScore;
+        protected bool _perceptionProf;
+        protected int _performanceScore;
+        protected bool _performanceProf;
+        protected int _persuasionScore;
+        protected bool _persuasionProf;
+        protected int _religonScore;
+        protected bool _religonProf;
+        protected int _slieghtScore;
+        protected bool _slieghtProf;
+        protected int _stealthScore;
+        protected bool _stealthProf;
+        protected int _survivalScore;
+        protected bool _survivalProf;
 
         //Misc Statisics
-        private int _chaSpeed;
-        private int _chaAC;
-        private int _hitDie;
-        private int _currentHealth;
-        private int _maxHealth;
-        private int _passiveWis;
-        private int _passiveInt;
-        private int _initiativeBonus;
+        protected int _chaSpeed;
+        protected int _chaAC;
+        protected int _hitDie;
+        protected int _currentHealth;
+        protected int _maxHealth;
+        protected int _passiveWis;
+        protected int _passiveInt;
+        protected int _initiativeBonus;
 
         private void InitializeSkills()
         {
@@ -123,20 +131,11 @@ namespace Character_Creator
             _slieghtScore = Library.SkillModMath(_dexScore, _slieghtProf, _profBonus);
             _stealthScore = Library.SkillModMath(_dexScore, _stealthProf, _profBonus);
             _survivalScore = Library.SkillModMath(_wisScore, _survivalProf, _profBonus);
-        }
 
-        public void CharacterCreatorMain()
-        {
-            RaceSelection();
-            ClassSelection();
-        }
-        private void RaceSelection()
-        {
-            
-        }
-        private void ClassSelection()
-        {
-
+            //Sets up Misc stats
+            _initiativeBonus = _dexMod;
+            _passiveWis = 8 + _perceptionScore;
+            _passiveInt = 8 + _investigationScore;
         }
     }
 }
