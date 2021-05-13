@@ -81,6 +81,48 @@ namespace Character_Creator
             {"ranger",10 },
             {"barbarian",12 },
         };
+        static public List<string> standardLanguages = new List<string>()
+        {
+            {"Common" },
+            {"Dwarvish" },
+            {"Elvish" },
+            {"Giant" },
+            {"Gnomish" },
+            {"Goblin" },
+            {"Halfling" },
+            {"Orc" }
+        };
+        static public List<string> exoticLanguages = new List<string>()
+        {
+            {"Abyssal" },
+            {"Celestial" },
+            {"Draconic" },
+            {"Deep Speech" },
+            {"Infernal" },
+            {"Primordial" },
+            {"Sylvan" },
+            {"Undercommon" }
+        };
+        static public List<string> allLanguages = new List<string>()
+        {
+            {"Common" },
+            {"Dwarvish" },
+            {"Elvish" },
+            {"Giant" },
+            {"Gnomish" },
+            {"Goblin" },
+            {"Halfling" },
+            {"Orc" },
+            {"Abyssal" },
+            {"Celestial" },
+            {"Draconic" },
+            {"Deep Speech" },
+            {"Infernal" },
+            {"Primordial" },
+            {"Sylvan" },
+            {"Undercommon" }
+        };
+
         static public int SkillModMath(int rawScore, bool prof, int profBonus)
         {
             int returnScore = scoreMod[rawScore];
@@ -89,6 +131,12 @@ namespace Character_Creator
                 returnScore += profBonus;
             }
             return returnScore;
+        }
+        static public string RandomAllLanguage()
+        {
+            Random rnd = new Random();
+            int languageRoll = rnd.Next(allLanguages.Count);
+            return allLanguages[languageRoll];
         }
     }
 }
