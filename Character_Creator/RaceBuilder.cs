@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Character_Creator
 {
-    //NEEDS SUBRACE REDONE
     class Dwarf : Character
     {
         public Dwarf()
@@ -28,16 +27,16 @@ namespace Character_Creator
             _profTools.Add(dwarfToolOptions[dwarfToolOptionsRoll]);
             _profLanguages.Add("Common");
             _profLanguages.Add("Dwarvish");
-            int subRaceRoll = rnd.Next(1, 3);
-            if (subRaceRoll == 1)
+            string subRaceRoll = Library.RandomDwarfSubrace();
+            if (subRaceRoll == "Hill Dwarf")
             {
                 _chaRace = "Hill Dwarf";
                 _wisScore += 1;
                 _maxHealth += 1;
             }
-            if (subRaceRoll == 2)
+            if (subRaceRoll == "Mountain Dwarf")
             {
-                _chaRace = " Mountain Dwarf";
+                _chaRace = "Mountain Dwarf";
                 _strScore += 2;
                 _profArmor.Add("Light");
                 _profArmor.Add("Medium");
@@ -45,7 +44,6 @@ namespace Character_Creator
         }
     }
 
-    //NEEDS SUBRACE REDONE
     class Elf : Character
     {
         public Elf()
@@ -58,9 +56,8 @@ namespace Character_Creator
             _chaAbilities.Add("Trance");
             _profLanguages.Add("Common");
             _profLanguages.Add("Elvish");
-            Random rnd = new Random(); ;
-            int subRaceRoll = rnd.Next(1, 4);
-            if (subRaceRoll == 1)
+            string subRaceRoll = Library.RandomElfSubrace();
+            if (subRaceRoll == "High Elf")
             {
                 _chaRace = "High Elf";
                 _intScore += 1;
@@ -69,8 +66,9 @@ namespace Character_Creator
                 _profWeapons.Add("Shortbow");
                 _profWeapons.Add("Longbow");
                 _profLanguages.Add(Library.RandomAllLanguage());
+                _chaSpellList.Add(Library.RandomWizardCantrip());
             }
-            if (subRaceRoll == 2)
+            if (subRaceRoll == "Wood Elf")
             {
                 _chaRace = "Wood Elf";
                 _profWeapons.Add("Longsword");
@@ -80,7 +78,7 @@ namespace Character_Creator
                 _chaSpeed += 5;
                 _chaAbilities.Add("Mask of the Wild");
             }
-            if (subRaceRoll == 3)
+            if (subRaceRoll == "Dark Elf (Drow)")
             {
                 _chaRace = "Dark Elf (Drow)";
                 _chaScore += 1;
@@ -93,7 +91,6 @@ namespace Character_Creator
         }
     }
 
-    //NOT DONE
     class Halfling : Character
     {
         public Halfling()
@@ -105,9 +102,217 @@ namespace Character_Creator
             _chaAbilities.Add("Halfling Nimbleness");
             _profLanguages.Add("Common");
             _profLanguages.Add("Halfling");
+            string subRaceRoll = Library.RandomHalflingSubRace();
+            if (subRaceRoll == "Lightfoot")
+            {
+                _chaRace = "Lightfoot Dwarf";
+                _chaScore += 1;
+                _chaAbilities.Add("Naturally Stealthy");
+            }
+            if (subRaceRoll == "Stout")
+            {
+                _chaRace = "Stout Dwarf";
+                _conScore += 1;
+                _chaAbilities.Add("Stout Resilience");
+            }
             
 
         }
 
     }
+
+    class Human : Character
+    {
+        public Human()
+        {
+            _chaRace = "Human";
+            _strScore += 1;
+            _dexScore += 1;
+            _conScore += 1;
+            _wisScore += 1;
+            _intScore += 1;
+            _chaScore += 1;
+            _chaSpeed += 30;
+            _profLanguages.Add("Common");
+            _profLanguages.Add(Library.RandomAllLanguage());
+        }
+    }
+
+    class Dragonborn : Character
+    {
+        public Dragonborn()
+        {
+            _chaScore += 1;
+            _strScore += 2;
+            _chaSpeed += 30;
+            string ancestryRoll = Library.RandomDragonbornAncestry();
+            if (ancestryRoll == "Black")
+            {
+                _chaResistances.Add("Acid");
+                _chaAbilities.Add("Acid Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Blue")
+            {
+                _chaResistances.Add("Lightning");
+                _chaAbilities.Add("Lightning Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Brass")
+            {
+                _chaResistances.Add("Fire");
+                _chaAbilities.Add("Fire Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Bronze")
+            {
+                _chaResistances.Add("Lightning");
+                _chaAbilities.Add("Lightning Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Copper")
+            {
+                _chaResistances.Add("Acid");
+                _chaAbilities.Add("Acid Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Gold")
+            {
+                _chaResistances.Add("Fire");
+                _chaAbilities.Add("Fire Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Green")
+            {
+                _chaResistances.Add("Poison");
+                _chaAbilities.Add("Poison Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Red")
+            {
+                _chaResistances.Add("Fire");
+                _chaAbilities.Add("Fire Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "Silver")
+            {
+                _chaResistances.Add("Cold");
+                _chaAbilities.Add("Cold Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+            if (ancestryRoll == "White")
+            {
+                _chaResistances.Add("Cold");
+                _chaAbilities.Add("Cold Breath");
+                _profLanguages.Add("Common");
+                _profLanguages.Add("Draconic");
+            }
+        }
+    }
+
+    class Gnome : Character
+    {
+        public Gnome()
+        {
+            _intScore += 2;
+            _chaSpeed += 25;
+            _chaAbilities.Add("Darkvision");
+            _chaAbilities.Add("Gnome Cunning");
+            _profLanguages.Add("Common");
+            _profLanguages.Add("Gnomish");
+            string subRaceRoll = Library.RandomGnomeSubrace();
+            if (subRaceRoll == "Forest Gnome")
+            {
+                _chaRace = "Forest Gnome";
+                _dexScore += 1;
+                _chaSpellList.Add("Minor Illusion");
+                _chaAbilities.Add("Speak with Small Beasts");
+            }
+            if (subRaceRoll == "Rock Gnome")
+            {
+                _conScore += 1;
+                _chaAbilities.Add("Artificer's Lore");
+                _chaAbilities.Add("Tinker");
+                _profTools.Add("Tinker's Tools");
+            }
+        }
+
+    }
+
+    class HalfElf : Character
+    {
+        public HalfElf()
+        {
+            _chaScore += 2;
+            _chaSpeed += 30;
+            _chaAbilities.Add("Darkvision");
+            _chaAbilities.Add("Fey Ancestry");
+            string abilityRoll1 = Library.RandomAbilityCategory();
+            string abilityRoll2 = Library.RandomAbilityCategory();
+            string skillRoll1 = Library.RandomSkillCategory();
+            string skillRoll2 = Library.RandomSkillCategory();
+            if (abilityRoll1 == abilityRoll2)
+            {
+                while (abilityRoll1 == abilityRoll2)
+                {
+                    abilityRoll2 = Library.RandomAbilityCategory();
+                }
+            }
+            if (skillRoll1 == skillRoll2)
+            {
+                while (skillRoll1 == skillRoll2)
+                {
+                    skillRoll2 = Library.RandomSkillCategory();
+                }
+            }
+            RandomAbilityUpgrade(abilityRoll1);
+            RandomAbilityUpgrade(abilityRoll2);
+            CharacterProfGet(skillRoll1);
+            CharacterProfGet(skillRoll2);
+            _profLanguages.Add(Library.RandomAllLanguage());          
+        }
+    }
+
+    class HalfOrc : Character
+    {
+        public HalfOrc()
+        {
+            _strScore += 2;
+            _conScore += 1;
+            _chaSpeed += 30;
+            _chaAbilities.Add("Darkvision");
+            _intimidationProf = true;
+            _chaAbilities.Add("Relentless Endurance");
+            _chaAbilities.Add("Savage Attacks");
+            _profLanguages.Add("Common");
+            _profLanguages.Add("Orc");
+        }
+    }
+
+    class Tiefling : Character
+    {
+        public Tiefling()
+        {
+            _intScore += 1;
+            _chaScore += 2;
+            _chaSpeed += 30;
+            _chaAbilities.Add("Darkvision");
+            _chaResistances.Add("Fire");
+            _chaSpellList.Add("Thaumaturgy");
+            _profLanguages.Add("Common");
+            _profLanguages.Add("Infernal");
+        }
+    }
+
+    
+    
 }

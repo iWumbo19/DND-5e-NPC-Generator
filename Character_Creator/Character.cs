@@ -16,6 +16,9 @@ namespace Character_Creator
         protected List<string> _chaResistances = new List<string>();
         protected List<string> _chaAbilities = new List<string>();
 
+        //Spell List (BETA)
+        protected List<string> _chaSpellList = new List<string>();
+
         //Basic character information
         protected string _chaName;
         protected string _chaRace;
@@ -102,6 +105,24 @@ namespace Character_Creator
 
         private void InitializeSkills()
         {
+            Random rnd = new Random();
+            _chaLevel = 1;
+            //Rolls stats and sets ability scores
+            List<int> statRolls = new List<int>();
+            int x = 0;
+            while (x < 7)
+            {
+                statRolls.Add(rnd.Next(1, 7) + rnd.Next(1, 7) + rnd.Next(1, 7));
+                x++;
+            }
+            statRolls.Remove(statRolls.Min());
+            _strScore = statRolls[0];
+            _dexScore = statRolls[1];
+            _conScore = statRolls[2];
+            _wisScore = statRolls[3];
+            _intScore = statRolls[4];
+            _chaScore = statRolls[5];
+
             //Sets up Ability Modifiers
             _strMod = Library.scoreMod[_strScore];
             _dexMod = Library.scoreMod[_dexScore];
@@ -133,10 +154,278 @@ namespace Character_Creator
             _stealthScore = Library.SkillModMath(_dexScore, _stealthProf, _profBonus);
             _survivalScore = Library.SkillModMath(_wisScore, _survivalProf, _profBonus);
 
+            //Sets up saving throws
+            _strSave = Library.SkillModMath(_strScore, _strProf, _profBonus);
+            _dexSave = Library.SkillModMath(_dexScore, _dexProf, _profBonus);
+            _conSave = Library.SkillModMath(_conScore, _conProf, _profBonus);
+            _wisSave = Library.SkillModMath(_wisScore, _wisProf, _profBonus);
+            _intSave = Library.SkillModMath(_intScore, _intProf, _profBonus);
+            _chaSave = Library.SkillModMath(_chaScore, _chaProf, _profBonus);
+
+
             //Sets up Misc stats
             _initiativeBonus = _dexMod;
             _passiveWis = 8 + _perceptionScore;
             _passiveInt = 8 + _investigationScore;
+        }
+        protected void CharacterProfGet(string skill)
+        {
+            if (skill == Library.skillCategories[0])
+            {
+                _acroProf = true;
+            }
+            else if (skill == Library.skillCategories[1])
+            {
+                _animalProf = true;
+            }
+            else if (skill == Library.skillCategories[2])
+            {
+                _arcanaProf = true;
+            }
+            else if (skill == Library.skillCategories[3])
+            {
+                _athleticsProf = true;
+            }
+            else if (skill == Library.skillCategories[4])
+            {
+                _deceptionProf = true;
+            }
+            else if (skill == Library.skillCategories[5])
+            {
+                _historyProf = true;
+            }
+            else if (skill == Library.skillCategories[6])
+            {
+                _insightProf = true;
+            }
+            else if (skill == Library.skillCategories[7])
+            {
+                _intimidationProf = true;
+            }
+            else if (skill == Library.skillCategories[8])
+            {
+                _investigationProf = true;
+            }
+            else if (skill == Library.skillCategories[9])
+            {
+                _medicineProf = true;
+            }
+            else if (skill == Library.skillCategories[10])
+            {
+                _natureProf = true;
+            }
+            else if (skill == Library.skillCategories[11])
+            {
+                _perceptionProf = true;
+            }
+            else if (skill == Library.skillCategories[12])
+            {
+                _performanceProf = true;
+            }
+            else if (skill == Library.skillCategories[13])
+            {
+                _persuasionProf = true;
+            }
+            else if (skill == Library.skillCategories[14])
+            {
+                _religonProf = true;
+            }
+            else if (skill == Library.skillCategories[15])
+            {
+                _slieghtProf = true;
+            }
+            else if (skill == Library.skillCategories[16])
+            {
+                _stealthProf = true;
+            }
+            else if (skill == Library.skillCategories[17])
+            {
+                _survivalProf = true;
+            }
+        }
+        protected void RandomAbilityUpgrade(string ability)
+        {
+            if (ability == Library.abilityCategories[0])
+            {
+                _strScore += 1;
+            }
+            else if (ability == Library.abilityCategories[1])
+            {
+                _dexScore += 1;
+            }
+            else if (ability == Library.abilityCategories[2])
+            {
+                _conScore += 1;
+            }
+            else if (ability == Library.abilityCategories[3])
+            {
+                _wisScore += 1;
+            }
+            else if (ability == Library.abilityCategories[4])
+            {
+                _intScore += 1;
+            }
+            else if (ability == Library.abilityCategories[5])
+            {
+                _chaScore += 1;
+            }
+        }
+        protected void MakeBarbarianClass()
+        {
+            Random rnd = new Random();
+            _chaClass = "Barbarian";
+            _chaLevel = 1;
+            _hitDie = 12;
+            _currentHealth = rnd.Next(1, _hitDie+1) + _conMod;
+            _maxHealth = _currentHealth;
+            if (!_profArmor.Contains("Light Armor")) { _profArmor.Add("Light Armor"); }
+            if (!_profArmor.Contains("Medium Armor")) { _profArmor.Add("Medium Armor"); }
+            if (!_profArmor.Contains("Shields")) { _profArmor.Add("Shields"); }
+            if (!_profWeapons.Contains("Simple Weapons")) { _profWeapons.Add("Simple Weapons"); }
+            if (!_profWeapons.Contains("Martial Weapons")) { _profWeapons.Add("Martial Weapons"); }
+            _strProf = true;
+            _conProf = true;
+            string barbSkillProf1 = Library.RandomBarbSkill();
+            string barbSkillProf2 = Library.RandomBarbSkill();
+            if (barbSkillProf1 == barbSkillProf2 ^ AmIProficient(barbSkillProf1) ^ AmIProficient(barbSkillProf2))
+            {
+                while (barbSkillProf1 == barbSkillProf2 ^ AmIProficient(barbSkillProf1) ^ AmIProficient(barbSkillProf2))
+                {
+                    barbSkillProf1 = Library.RandomBarbSkill();
+                    barbSkillProf2 = Library.RandomBarbSkill();
+                }
+            }
+            CharacterProfGet(barbSkillProf1);
+            CharacterProfGet(barbSkillProf2);
+            _chaAbilities.Add("Rage");
+            _chaAbilities.Add("Unarmored Defense");
+            _chaAC = 10 + _dexMod + _conMod;
+        }
+
+        //RETURNS TRUE IF YOU ARE PROFICIENT
+        protected bool AmIProficient(string skill)
+        {
+            if (skill == Library.abilityCategories[0])
+            {
+                if (_strProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.abilityCategories[1])
+            {
+                if (_dexProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.abilityCategories[2])
+            {
+                if (_conProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.abilityCategories[3])
+            {
+                if (_wisProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.abilityCategories[4])
+            {
+                if (_intProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.abilityCategories[5])
+            {
+                if (_chaProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[0])
+            {
+                if (_acroProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[1])
+            {
+                if (_animalProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[2])
+            {
+                if (_arcanaProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[3])
+            {
+                if (_athleticsProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[4])
+            {
+                if (_deceptionProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[5])
+            {
+                if (_historyProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[6])
+            {
+                if (_insightProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[7])
+            {
+                if (_intimidationProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[8])
+            {
+                if (_investigationProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[9])
+            {
+                if (_medicineProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[10])
+            {
+                if (_natureProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[11])
+            {
+                if (_perceptionProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[12])
+            {
+                if (_performanceProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[13])
+            {
+                if (_persuasionProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[14])
+            {
+                if (_religonProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[15])
+            {
+                if (_slieghtProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[16])
+            {
+                if (_stealthProf == true) return true;
+                else return false;
+            }
+            else if (skill == Library.skillCategories[17])
+            {
+                if (_survivalProf == true) return true;
+                else return false;
+            }
+            else return false;
         }
     }
 }

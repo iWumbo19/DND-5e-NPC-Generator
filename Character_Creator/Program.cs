@@ -10,7 +10,7 @@ namespace Character_Creator
     {
         static void Main(string[] args)
         {
-
+            
         }
     }
 }
