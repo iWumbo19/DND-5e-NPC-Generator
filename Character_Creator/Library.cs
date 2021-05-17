@@ -124,6 +124,19 @@ namespace Character_Creator
             {"Stealth" },
             {"Survival" }
         };
+        static public List<string> musicalInstruments = new List<string>()
+        {
+            {"Bagpipes" },
+            {"Drum" },
+            {"Dulcimer" },
+            {"Flute" },
+            {"Lute" },
+            {"Lyre" },
+            {"Horn" },
+            {"Pan Flute" },
+            {"Shawm" },
+            {"Viol" }
+        };
         static public List<string> barbSkillOptions = new List<string>()
             {
                 {"Animal Handling" },
