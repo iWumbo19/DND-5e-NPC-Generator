@@ -11,6 +11,11 @@ namespace Character_Creator
         static void Main(string[] args)
         {
             Dwarf player = new Dwarf();
+            player.RollNewStats();
+            player.UpdateAbilityMods();
+            player.UpdateSkills();
+            player.PrintAllDump();
+
             Elf player2 = new Elf();
             Halfling player3 = new Halfling();
             Human player4 = new Human();
@@ -19,6 +24,7 @@ namespace Character_Creator
             HalfElf player7 = new HalfElf();
             HalfOrc player8 = new HalfOrc();
             Tiefling player9 = new Tiefling();
+            Console.ReadLine();
         }
     }
 }

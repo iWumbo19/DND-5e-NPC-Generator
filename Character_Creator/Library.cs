@@ -287,7 +287,8 @@ namespace Character_Creator
         //Returns Subraces
         public string RandomDwarfSubrace()
         {
-            return "Hill Dwarf";
+            Random rnd = new Random();
+            return dwarfSubRace[rnd.Next(dwarfSubRace.Count)];
         }
         public string RandomElfSubrace()
         {

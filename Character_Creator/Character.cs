@@ -103,7 +103,7 @@ namespace Character_Creator
         protected int _passiveInt;
         protected int _initiativeBonus;
 
-        private void RollNewStats()
+        public void RollNewStats()
         {
             Random rnd = new Random();
             //Rolls stats and sets ability scores
@@ -807,6 +807,24 @@ namespace Character_Creator
             if (!_chaSpellList.Contains(addition))
             {
                 _chaSpellList.Add(addition);
+            }
+        }
+
+
+        ///CONSOLE STAT DUMP FOR DEBUG PURPOSES
+        public void PrintAllDump()
+        {
+            Console.WriteLine(_chaRace);
+            Console.WriteLine(_chaLevel);
+            Console.WriteLine(_strMod);
+            Console.WriteLine(_dexMod);
+            Console.WriteLine(_conMod);
+            Console.WriteLine(_wisMod);
+            Console.WriteLine(_intMod);
+            Console.WriteLine(_chaMod);
+            foreach (string i in _profWeapons)
+            {
+                Console.WriteLine(i);
             }
         }
     }
