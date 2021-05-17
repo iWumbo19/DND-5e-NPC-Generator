@@ -10,6 +10,7 @@ namespace Character_Creator
     {
         public Dwarf()
         {
+            Library lib = new Library();
             _conScore += 2;
             _chaSpeed += 25;
             _chaAbilities.Add("Darkvision");
@@ -27,7 +28,7 @@ namespace Character_Creator
             _profTools.Add(dwarfToolOptions[dwarfToolOptionsRoll]);
             _profLanguages.Add("Common");
             _profLanguages.Add("Dwarvish");
-            string subRaceRoll = Library.RandomDwarfSubrace();
+            string subRaceRoll = lib.RandomDwarfSubrace();
             if (subRaceRoll == "Hill Dwarf")
             {
                 _chaRace = "Hill Dwarf";
@@ -48,6 +49,7 @@ namespace Character_Creator
     {
         public Elf()
         {
+            Library lib = new Library();
             _dexScore += 2;
             _chaSpeed += 30;
             _chaAbilities.Add("Darkvision");
@@ -56,7 +58,7 @@ namespace Character_Creator
             _chaAbilities.Add("Trance");
             _profLanguages.Add("Common");
             _profLanguages.Add("Elvish");
-            string subRaceRoll = Library.RandomElfSubrace();
+            string subRaceRoll = lib.RandomElfSubrace();
             if (subRaceRoll == "High Elf")
             {
                 _chaRace = "High Elf";
@@ -65,8 +67,8 @@ namespace Character_Creator
                 _profWeapons.Add("Shortsword");
                 _profWeapons.Add("Shortbow");
                 _profWeapons.Add("Longbow");
-                _profLanguages.Add(Library.RandomAllLanguage());
-                _chaSpellList.Add(Library.RandomWizardCantrip());
+                _profLanguages.Add(lib.RandomAllLanguage());
+                _chaSpellList.Add(lib.RandomWizardCantrip());
             }
             if (subRaceRoll == "Wood Elf")
             {
@@ -95,6 +97,7 @@ namespace Character_Creator
     {
         public Halfling()
         {
+            Library lib = new Library();
             _dexScore += 2;
             _chaSpeed += 25;
             _chaAbilities.Add("Lucky");
@@ -102,7 +105,7 @@ namespace Character_Creator
             _chaAbilities.Add("Halfling Nimbleness");
             _profLanguages.Add("Common");
             _profLanguages.Add("Halfling");
-            string subRaceRoll = Library.RandomHalflingSubRace();
+            string subRaceRoll = lib.RandomHalflingSubRace();
             if (subRaceRoll == "Lightfoot")
             {
                 _chaRace = "Lightfoot Dwarf";
@@ -115,7 +118,7 @@ namespace Character_Creator
                 _conScore += 1;
                 _chaAbilities.Add("Stout Resilience");
             }
-            
+
 
         }
 
@@ -125,6 +128,7 @@ namespace Character_Creator
     {
         public Human()
         {
+            Library lib = new Library();
             _chaRace = "Human";
             _strScore += 1;
             _dexScore += 1;
@@ -134,7 +138,7 @@ namespace Character_Creator
             _chaScore += 1;
             _chaSpeed += 30;
             _profLanguages.Add("Common");
-            _profLanguages.Add(Library.RandomAllLanguage());
+            _profLanguages.Add(lib.RandomAllLanguage());
         }
     }
 
@@ -142,10 +146,11 @@ namespace Character_Creator
     {
         public Dragonborn()
         {
+            Library lib = new Library();
             _chaScore += 1;
             _strScore += 2;
             _chaSpeed += 30;
-            string ancestryRoll = Library.RandomDragonbornAncestry();
+            string ancestryRoll = lib.RandomDragonbornAncestry();
             if (ancestryRoll == "Black")
             {
                 _chaResistances.Add("Acid");
@@ -223,13 +228,14 @@ namespace Character_Creator
     {
         public Gnome()
         {
+            Library lib = new Library();
             _intScore += 2;
             _chaSpeed += 25;
             _chaAbilities.Add("Darkvision");
             _chaAbilities.Add("Gnome Cunning");
             _profLanguages.Add("Common");
             _profLanguages.Add("Gnomish");
-            string subRaceRoll = Library.RandomGnomeSubrace();
+            string subRaceRoll = lib.RandomGnomeSubrace();
             if (subRaceRoll == "Forest Gnome")
             {
                 _chaRace = "Forest Gnome";
@@ -252,33 +258,34 @@ namespace Character_Creator
     {
         public HalfElf()
         {
+            Library lib = new Library();
             _chaScore += 2;
             _chaSpeed += 30;
             _chaAbilities.Add("Darkvision");
             _chaAbilities.Add("Fey Ancestry");
-            string abilityRoll1 = Library.RandomAbilityCategory();
-            string abilityRoll2 = Library.RandomAbilityCategory();
-            string skillRoll1 = Library.RandomSkillCategory();
-            string skillRoll2 = Library.RandomSkillCategory();
+            string abilityRoll1 = lib.RandomAbilityCategory();
+            string abilityRoll2 = lib.RandomAbilityCategory();
+            string skillRoll1 = lib.RandomSkillCategory();
+            string skillRoll2 = lib.RandomSkillCategory();
             if (abilityRoll1 == abilityRoll2)
             {
                 while (abilityRoll1 == abilityRoll2)
                 {
-                    abilityRoll2 = Library.RandomAbilityCategory();
+                    abilityRoll2 = lib.RandomAbilityCategory();
                 }
             }
             if (skillRoll1 == skillRoll2)
             {
                 while (skillRoll1 == skillRoll2)
                 {
-                    skillRoll2 = Library.RandomSkillCategory();
+                    skillRoll2 = lib.RandomSkillCategory();
                 }
             }
             RandomAbilityUpgrade(abilityRoll1);
             RandomAbilityUpgrade(abilityRoll2);
             CharacterProfGet(skillRoll1);
             CharacterProfGet(skillRoll2);
-            _profLanguages.Add(Library.RandomAllLanguage());          
+            _profLanguages.Add(lib.RandomAllLanguage());
         }
     }
 
@@ -313,6 +320,6 @@ namespace Character_Creator
         }
     }
 
-    
-    
+
+
 }

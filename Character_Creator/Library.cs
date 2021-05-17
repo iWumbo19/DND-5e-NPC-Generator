@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Character_Creator
 {
-    static class Library
+    class Library
     {
         
         //Stat Number Translators
-        static public Dictionary<int, int> levelProf = new Dictionary<int, int>()
+        public Dictionary<int, int> levelProf = new Dictionary<int, int>()
         {
             {1,2 },
             {2,2 },
@@ -33,7 +33,7 @@ namespace Character_Creator
             {19,6 },
             {20,6 },
         };
-        static public Dictionary<int, int> scoreMod = new Dictionary<int, int>()
+        public Dictionary<int, int> scoreMod = new Dictionary<int, int>()
         {
             {1,-5 },
             {2,-4 },
@@ -60,14 +60,13 @@ namespace Character_Creator
             {23,6 },
             {24,7 },
             {25,7 },
-            {25,8 },
             {26,8 },
-            {27,9 },
+            {27,8 },
             {28,9 },
-            {29,10 },
+            {29,9 },
             {30,10 },
         };
-        static public Dictionary<string, int> classHitDie = new Dictionary<string, int>()
+        public Dictionary<string, int> classHitDie = new Dictionary<string, int>()
         {
             {"sorcerer",6 },
             {"wizard",6 },
@@ -83,7 +82,7 @@ namespace Character_Creator
             {"ranger",10 },
             {"barbarian",12 },
         };
-        static public int SkillModMath(int rawScore, bool prof, int profBonus)
+        public int SkillModMath(int rawScore, bool prof, int profBonus)
         {
             int returnScore = scoreMod[rawScore];
             if (prof == true)
@@ -94,7 +93,7 @@ namespace Character_Creator
         }
         
         //Lists of Specific Choices
-        static public List<string> abilityCategories = new List<string>()
+        public List<string> abilityCategories = new List<string>()
         {
             {"Strength" },
             {"Dexterity" },
@@ -103,7 +102,7 @@ namespace Character_Creator
             {"Inteligence" },
             {"Charisma" }
         };
-        static public List<string> skillCategories = new List<string>()
+        public List<string> skillCategories = new List<string>()
         {
             {"Acrobatics" },
             {"Animal Handling" },
@@ -124,7 +123,7 @@ namespace Character_Creator
             {"Stealth" },
             {"Survival" }
         };
-        static public List<string> musicalInstruments = new List<string>()
+        public List<string> musicalInstruments = new List<string>()
         {
             {"Bagpipes" },
             {"Drum" },
@@ -137,7 +136,7 @@ namespace Character_Creator
             {"Shawm" },
             {"Viol" }
         };
-        static public List<string> barbSkillOptions = new List<string>()
+        public List<string> barbSkillOptions = new List<string>()
             {
                 {"Animal Handling" },
                 {"Athletics" },
@@ -148,7 +147,7 @@ namespace Character_Creator
             };
 
         //Basic PHB Races/Classes
-        static public List<string> raceList = new List<string>()
+        public List<string> raceList = new List<string>()
         {
             {"Dwarf" },
             {"Elf" },
@@ -160,7 +159,7 @@ namespace Character_Creator
             {"Half-orc" },
             {"Tiefling" }
         };
-        static public List<string> classList = new List<string>()
+        public List<string> classList = new List<string>()
         {
             {"Barbarian" },
             {"Bard" },
@@ -177,23 +176,23 @@ namespace Character_Creator
         };
 
         //Lists containing PHB Subraces
-        static public List<string> halflingSubRace = new List<string>()
+        public List<string> halflingSubRace = new List<string>()
         {
             {"Lightfoot" },
             {"Stout" }
         };
-        static public List<string> dwarfSubRace = new List<string>()
+        public List<string> dwarfSubRace = new List<string>()
         {
             {"Hill Dwarf" },
             {"Mountain Dwarf" }
         };
-        static public List<string> elfSubRace = new List<string>()
+        public List<string> elfSubRace = new List<string>()
         {
             {"High Elf" },
             {"Wood Elf" },
             {"Dark Elf (Drow)" }
         };
-        static public List<string> dragonbornAncestry = new List<string>()
+        public List<string> dragonbornAncestry = new List<string>()
         {
             {"Black" },
             {"Blue" },
@@ -206,14 +205,14 @@ namespace Character_Creator
             {"Silver" },
             {"White" }
         };
-        static public List<string> gnomeSubRace = new List<string>()
+        public List<string> gnomeSubRace = new List<string>()
         {
             {"Forest Gnome" },
             {"Rock Gnome" }
         };
 
         //Lists containing PHB languages
-        static public List<string> standardLanguages = new List<string>()
+        public List<string> standardLanguages = new List<string>()
         {
             {"Common" },
             {"Dwarvish" },
@@ -224,7 +223,7 @@ namespace Character_Creator
             {"Halfling" },
             {"Orc" }
         };
-        static public List<string> exoticLanguages = new List<string>()
+        public List<string> exoticLanguages = new List<string>()
         {
             {"Abyssal" },
             {"Celestial" },
@@ -235,7 +234,7 @@ namespace Character_Creator
             {"Sylvan" },
             {"Undercommon" }
         };
-        static public List<string> allLanguages = new List<string>()
+        public List<string> allLanguages = new List<string>()
         {
             {"Common" },
             {"Dwarvish" },
@@ -256,7 +255,7 @@ namespace Character_Creator
         };
 
         //Spell Compendium
-        static public List<string> spellWizardCantrips = new List<string>
+        public List<string> spellWizardCantrips = new List<string>
         {
             {"Acid Splash" },
             {"Chill Touch" },
@@ -278,7 +277,7 @@ namespace Character_Creator
 
         ////Rolls on tables to generate random choosings of traits
         //Returns Languages
-        static public string RandomAllLanguage()
+        public string RandomAllLanguage()
         {
             Random rnd = new Random();
             int languageRoll = rnd.Next(allLanguages.Count);
@@ -286,51 +285,50 @@ namespace Character_Creator
         }
 
         //Returns Subraces
-        static public string RandomDwarfSubrace()
+        public string RandomDwarfSubrace()
         {
-            Random rnd = new Random();
-            return dwarfSubRace[rnd.Next(dwarfSubRace.Count)];
+            return "Hill Dwarf";
         }
-        static public string RandomElfSubrace()
+        public string RandomElfSubrace()
         {
             Random rnd = new Random();
             return elfSubRace[rnd.Next(elfSubRace.Count)];
         }
-        static public string RandomHalflingSubRace()
+        public string RandomHalflingSubRace()
         {
             Random rnd = new Random();
             return halflingSubRace[rnd.Next(halflingSubRace.Count)];
         }
-        static public string RandomDragonbornAncestry()
+        public string RandomDragonbornAncestry()
         {
             Random rnd = new Random();
             return dragonbornAncestry[rnd.Next(dragonbornAncestry.Count)];
         }
-        static public string RandomGnomeSubrace()
+        public string RandomGnomeSubrace()
         {
             Random rnd = new Random();
             return gnomeSubRace[rnd.Next(gnomeSubRace.Count)];
         }
 
         //Returns Spells
-        static public string RandomWizardCantrip()
+        public string RandomWizardCantrip()
         {
             Random rnd = new Random();
             return spellWizardCantrips[rnd.Next(spellWizardCantrips.Count)];
         }
 
         //Returns Random Things
-        static public string RandomAbilityCategory()
+        public string RandomAbilityCategory()
         {
             Random rnd = new Random();
             return abilityCategories[rnd.Next(abilityCategories.Count)];
         }
-        static public string RandomSkillCategory()
+        public string RandomSkillCategory()
         {
             Random rnd = new Random();
             return skillCategories[rnd.Next(skillCategories.Count)];
         }
-        static public string RandomBarbSkill()
+        public string RandomBarbSkill()
         {
             Random rnd = new Random();
             return barbSkillOptions[rnd.Next(barbSkillOptions.Count)];
