@@ -108,13 +108,13 @@ namespace Character_Creator
             string subRaceRoll = lib.RandomHalflingSubRace();
             if (subRaceRoll == "Lightfoot")
             {
-                _chaRace = "Lightfoot Dwarf";
+                _chaRace = "Lightfoot Halfling";
                 _chaScore += 1;
                 _chaAbilities.Add("Naturally Stealthy");
             }
             if (subRaceRoll == "Stout")
             {
-                _chaRace = "Stout Dwarf";
+                _chaRace = "Stout Halfling";
                 _conScore += 1;
                 _chaAbilities.Add("Stout Resilience");
             }
@@ -153,6 +153,7 @@ namespace Character_Creator
             string ancestryRoll = lib.RandomDragonbornAncestry();
             if (ancestryRoll == "Black")
             {
+                _chaRace = "Black Dragonborn";
                 _chaResistances.Add("Acid");
                 _chaAbilities.Add("Acid Breath");
                 _profLanguages.Add("Common");
@@ -160,6 +161,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Blue")
             {
+                _chaRace = "Blue Dragonborn";
                 _chaResistances.Add("Lightning");
                 _chaAbilities.Add("Lightning Breath");
                 _profLanguages.Add("Common");
@@ -167,6 +169,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Brass")
             {
+                _chaRace = "Brass Dragonborn";
                 _chaResistances.Add("Fire");
                 _chaAbilities.Add("Fire Breath");
                 _profLanguages.Add("Common");
@@ -174,6 +177,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Bronze")
             {
+                _chaRace = "Bronze Dragonborn";
                 _chaResistances.Add("Lightning");
                 _chaAbilities.Add("Lightning Breath");
                 _profLanguages.Add("Common");
@@ -181,6 +185,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Copper")
             {
+                _chaRace = "Copper Dragonborn";
                 _chaResistances.Add("Acid");
                 _chaAbilities.Add("Acid Breath");
                 _profLanguages.Add("Common");
@@ -188,6 +193,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Gold")
             {
+                _chaRace = "Golden Dragonborn";
                 _chaResistances.Add("Fire");
                 _chaAbilities.Add("Fire Breath");
                 _profLanguages.Add("Common");
@@ -195,6 +201,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Green")
             {
+                _chaRace = "Green Dragonborn";
                 _chaResistances.Add("Poison");
                 _chaAbilities.Add("Poison Breath");
                 _profLanguages.Add("Common");
@@ -202,6 +209,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Red")
             {
+                _chaRace = "Red Dragonborn";
                 _chaResistances.Add("Fire");
                 _chaAbilities.Add("Fire Breath");
                 _profLanguages.Add("Common");
@@ -209,6 +217,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "Silver")
             {
+                _chaRace = "Silver Dragonborn";
                 _chaResistances.Add("Cold");
                 _chaAbilities.Add("Cold Breath");
                 _profLanguages.Add("Common");
@@ -216,6 +225,7 @@ namespace Character_Creator
             }
             if (ancestryRoll == "White")
             {
+                _chaRace = "White Dragonborn";
                 _chaResistances.Add("Cold");
                 _chaAbilities.Add("Cold Breath");
                 _profLanguages.Add("Common");
@@ -245,6 +255,7 @@ namespace Character_Creator
             }
             if (subRaceRoll == "Rock Gnome")
             {
+                _chaRace = "Rock Gnome";
                 _conScore += 1;
                 _chaAbilities.Add("Artificer's Lore");
                 _chaAbilities.Add("Tinker");
@@ -261,6 +272,7 @@ namespace Character_Creator
             Library lib = new Library();
             _chaScore += 2;
             _chaSpeed += 30;
+            _chaRace = "Half Elf";
             _chaAbilities.Add("Darkvision");
             _chaAbilities.Add("Fey Ancestry");
             string abilityRoll1 = lib.RandomAbilityCategory();
@@ -293,6 +305,7 @@ namespace Character_Creator
     {
         public HalfOrc()
         {
+            _chaRace = "Half Orc";
             _strScore += 2;
             _conScore += 1;
             _chaSpeed += 30;
@@ -309,6 +322,7 @@ namespace Character_Creator
     {
         public Tiefling()
         {
+            _chaRace = "Tiefling";
             _intScore += 1;
             _chaScore += 2;
             _chaSpeed += 30;

@@ -814,15 +814,49 @@ namespace Character_Creator
         ///CONSOLE STAT DUMP FOR DEBUG PURPOSES
         public void PrintAllDump()
         {
-            Console.WriteLine(_chaRace);
-            Console.WriteLine(_chaLevel);
-            Console.WriteLine(_strMod);
-            Console.WriteLine(_dexMod);
-            Console.WriteLine(_conMod);
-            Console.WriteLine(_wisMod);
-            Console.WriteLine(_intMod);
-            Console.WriteLine(_chaMod);
+            Console.WriteLine("Character Name: {0}",_chaName);
+            Console.WriteLine("Character Level: {0}", _chaLevel);
+            Console.WriteLine("Character Race: {0}",_chaRace);
+            Console.WriteLine("Character Class: {0}",_chaClass);
+            Console.WriteLine("Strength: {0}({1})",_strScore, _strMod);
+            Console.WriteLine("Dexterity: {0}({1})",_dexScore, _dexMod);
+            Console.WriteLine("Constitution: {0}({1})",_conScore, _conMod);
+            Console.WriteLine("Wisdom: {0}({1})",_wisScore, _wisMod);
+            Console.WriteLine("Inteligence: {0}({1})",_intScore, _intMod);
+            Console.WriteLine("Charisma: {0}({1})", _chaScore, _chaMod);
+
+            Console.WriteLine("\nWeapon Proficiencies:");
             foreach (string i in _profWeapons)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("\nArmor Proficiencies:");
+            foreach (string i in _profArmor)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("\nTool Proficiencies:");
+            foreach (string i in _profTools)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("\nKnown Languages:");
+            foreach (string i in _profLanguages)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("\nResitances:");
+            foreach (string i in _chaResistances)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("\nAbilties:");
+            foreach (string i in _chaAbilities)
             {
                 Console.WriteLine(i);
             }
