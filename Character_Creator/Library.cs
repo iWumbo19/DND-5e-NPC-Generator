@@ -187,19 +187,6 @@ namespace Character_Creator
             {"Wood Elf" },
             {"Dark Elf (Drow)" }
         };
-        public List<string> dragonbornAncestry = new List<string>()
-        {
-            {"Black" },
-            {"Blue" },
-            {"Brass" },
-            {"Bronze" },
-            {"Copper" },
-            {"Gold" },
-            {"Green" },
-            {"Red" },
-            {"Silver" },
-            {"White" }
-        };
         public List<string> gnomeSubRace = new List<string>()
         {
             {"Forest Gnome" },

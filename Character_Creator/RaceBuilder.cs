@@ -149,103 +149,94 @@ namespace Character_Creator
         }
     }
 
-    class Dragonborn : Character
+    class Dragonborn
     {
-        public Dragonborn()
+        private readonly Library lib = new Library();
+        private List<string> dragonbornAncestry = new List<string>()
         {
-            Library lib = new Library();
-            _chaScore += 1;
-            _strScore += 2;
-            _chaSpeed += 30;
-            string ancestryRoll = lib.RandomDragonbornAncestry();
-            if (ancestryRoll == "Black")
+            {"Black" },
+            {"Blue" },
+            {"Brass" },
+            {"Bronze" },
+            {"Copper" },
+            {"Gold" },
+            {"Green" },
+            {"Red" },
+            {"Silver" },
+            {"White" }
+        };
+
+        public void MakeDragonborn(Character player)
+        {
+            player.StrengthScoreChange(2);
+            player.CharismaScoreChange(1);
+            player.SpeedChange(30);
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf("Draconic");
+            string dragonbornSubRaceRoll = dragonbornAncestry[lib.RandomRoll(dragonbornAncestry.Count)];
+            if (dragonbornSubRaceRoll == "Black")
             {
-                _chaRace = "Black Dragonborn";
-                _chaResistances.Add("Acid");
-                _chaAbilities.Add("Acid Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Acid");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Blue")
+            if (dragonbornSubRaceRoll == "Blue")
             {
-                _chaRace = "Blue Dragonborn";
-                _chaResistances.Add("Lightning");
-                _chaAbilities.Add("Lightning Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Lightning");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Brass")
+            if (dragonbornSubRaceRoll == "Brass")
             {
-                _chaRace = "Brass Dragonborn";
-                _chaResistances.Add("Fire");
-                _chaAbilities.Add("Fire Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Fire");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Bronze")
+            if (dragonbornSubRaceRoll == "Bronze")
             {
-                _chaRace = "Bronze Dragonborn";
-                _chaResistances.Add("Lightning");
-                _chaAbilities.Add("Lightning Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Lightning");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Copper")
+            if (dragonbornSubRaceRoll == "Copper")
             {
-                _chaRace = "Copper Dragonborn";
-                _chaResistances.Add("Acid");
-                _chaAbilities.Add("Acid Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Acid");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Gold")
+            if (dragonbornSubRaceRoll == "Gold")
             {
-                _chaRace = "Golden Dragonborn";
-                _chaResistances.Add("Fire");
-                _chaAbilities.Add("Fire Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Fire");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Green")
+            if (dragonbornSubRaceRoll == "Green")
             {
-                _chaRace = "Green Dragonborn";
-                _chaResistances.Add("Poison");
-                _chaAbilities.Add("Poison Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Poison");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Red")
+            if (dragonbornSubRaceRoll == "Red")
             {
-                _chaRace = "Red Dragonborn";
-                _chaResistances.Add("Fire");
-                _chaAbilities.Add("Fire Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Fire");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "Silver")
+            if (dragonbornSubRaceRoll == "Silver")
             {
-                _chaRace = "Silver Dragonborn";
-                _chaResistances.Add("Cold");
-                _chaAbilities.Add("Cold Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Cold");
+                player.AddAbility("Breath Weapon");
             }
-            if (ancestryRoll == "White")
+            if (dragonbornSubRaceRoll == "White")
             {
-                _chaRace = "White Dragonborn";
-                _chaResistances.Add("Cold");
-                _chaAbilities.Add("Cold Breath");
-                _profLanguages.Add("Common");
-                _profLanguages.Add("Draconic");
+                player.AddResistance("Cold");
+                player.AddAbility("Breath Weapon");
             }
+
         }
     }
 
     class Gnome : Character
     {
-        public Gnome()
+        private readonly Library lib = new Library();
+        public void Gnome(Character player)
         {
-            Library lib = new Library();
+            player.
+
+
+
             _intScore += 2;
             _chaSpeed += 25;
             _chaAbilities.Add("Darkvision");
