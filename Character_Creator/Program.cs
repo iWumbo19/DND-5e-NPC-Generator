@@ -9,20 +9,17 @@ namespace Character_Creator
 {
     class Program
     {
-
+        private readonly Library lib = new Library();
+        private readonly Random rnd = new Random();
         static void Main(string[] args)
         {
-            GenerateNew();
+            Program pro = new Program();
+            pro.GenerateNew();
         }
 
-        static void GenerateNew()
+        public void GenerateNew()
         {
-            string xx = "faskjldhfa";
-            RandomNumberGenerator.Create(xx);
-            RandomNumberGenerator
-            
-            
-            Library lib = new Library();
+            Random rnd = new Random(Seeder());            
             int raceRoll = rnd.Next(lib.raceList.Count);
             if (raceRoll == 0)
             {
@@ -31,6 +28,8 @@ namespace Character_Creator
                 player.UpdateAbilityMods();
                 player.UpdateSkills();
                 player.PrintAllDump();
+                ClassSelection(Dwarf, player)
+
             }
             else if (raceRoll == 1)
             {
@@ -103,13 +102,38 @@ namespace Character_Creator
                 player.UpdateAbilityMods();
                 player.UpdateSkills();
                 player.PrintAllDump();
+                ClassSelection(;
             }
+            
             Console.WriteLine("Generate New Character? [y/n]");
             string ask = Console.ReadLine();
             if (ask == "y")
             {
                 GenerateNew();
+
             }
+            
+        }
+        private void ClassSelection(Character player)
+        {
+
+        }
+        private void ClassSelection(Dwarf player)
+        {
+
+        }
+        private void ClassSelection(Elf player)
+        {
+
+        }
+
+        static public int Seeder()
+        {
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            var byteArray = new byte[4];
+            rng.GetBytes(byteArray);
+            var randomInteger = BitConverter.ToInt32(byteArray, 0);
+            return randomInteger;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Character_Creator
 {
     class Library
     {
-        
+        private readonly Random rnd = new Random(Program.Seeder());
         //Stat Number Translators
         public Dictionary<int, int> levelProf = new Dictionary<int, int>()
         {
@@ -279,7 +279,6 @@ namespace Character_Creator
         //Returns Languages
         public string RandomAllLanguage()
         {
-            Random rnd = new Random();
             int languageRoll = rnd.Next(allLanguages.Count);
             return allLanguages[languageRoll];
         }
@@ -287,51 +286,42 @@ namespace Character_Creator
         //Returns Subraces
         public string RandomDwarfSubrace()
         {
-            Random rnd = new Random();
             return dwarfSubRace[rnd.Next(dwarfSubRace.Count)];
         }
         public string RandomElfSubrace()
         {
-            Random rnd = new Random();
             return elfSubRace[rnd.Next(elfSubRace.Count)];
         }
         public string RandomHalflingSubRace()
         {
-            Random rnd = new Random();
             return halflingSubRace[rnd.Next(halflingSubRace.Count)];
         }
         public string RandomDragonbornAncestry()
         {
-            Random rnd = new Random();
             return dragonbornAncestry[rnd.Next(dragonbornAncestry.Count)];
         }
         public string RandomGnomeSubrace()
         {
-            Random rnd = new Random();
             return gnomeSubRace[rnd.Next(gnomeSubRace.Count)];
         }
 
         //Returns Spells
         public string RandomWizardCantrip()
         {
-            Random rnd = new Random();
             return spellWizardCantrips[rnd.Next(spellWizardCantrips.Count)];
         }
 
         //Returns Random Things
         public string RandomAbilityCategory()
         {
-            Random rnd = new Random();
             return abilityCategories[rnd.Next(abilityCategories.Count)];
         }
         public string RandomSkillCategory()
         {
-            Random rnd = new Random();
             return skillCategories[rnd.Next(skillCategories.Count)];
         }
         public string RandomBarbSkill()
         {
-            Random rnd = new Random();
             return barbSkillOptions[rnd.Next(barbSkillOptions.Count)];
         }
             
