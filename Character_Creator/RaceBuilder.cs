@@ -6,139 +6,146 @@ using System.Threading.Tasks;
 
 namespace Character_Creator
 {
-    class Dwarf : Character
+    class Dwarf
     {
-        public Dwarf()
+        private readonly Library lib = new Library();
+        private List<string> dwarfSubRace = new List<string>()
         {
-            Library lib = new Library();
-            _conScore += 2;
-            _chaSpeed += 25;
-            _chaAbilities.Add("Darkvision");
-            _chaResistances.Add("Poison");
-            _profWeapons.Add("Battleaxe");
-            _profWeapons.Add("Handaxe");
-            _profWeapons.Add("Light Hammer");
-            _profWeapons.Add("Warhammer");
+            {"Hill Dwarf" },
+            {"Mountain Dwarf" }
+        };
+
+        public void MakeDwarf(Character player)
+        {
+            player.ConstitutionScoreChange(1);
+            player.SpeedChange(25);
+            player.AddAbility("Darkvision");
+            player.AddResistance("Poison");
+            player.AddWeaponProf("Battleaxe");
+            player.AddWeaponProf("Handaxe");
+            player.AddWeaponProf("Light Hammer");
+            player.AddWeaponProf("Warhammer");
             List<string> dwarfToolOptions = new List<string>();
             dwarfToolOptions.Add("Smith's Tools");
             dwarfToolOptions.Add("Bewer's Supplies");
             dwarfToolOptions.Add("Manson's Tools");
-            Random rnd = new Random();
-            int dwarfToolOptionsRoll = rnd.Next(0, 3);
-            _profTools.Add(dwarfToolOptions[dwarfToolOptionsRoll]);
-            _profLanguages.Add("Common");
-            _profLanguages.Add("Dwarvish");
-            string subRaceRoll = lib.RandomDwarfSubrace();
+            int dwarfToolOptionsRoll = lib.RandomRoll(0,3);
+            player.AddToolProf(dwarfToolOptions[dwarfToolOptionsRoll]);
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf("Dwarvish");
+            string subRaceRoll = RandomDwarfSubrace();
             if (subRaceRoll == "Hill Dwarf")
             {
-                _chaRace = "Hill Dwarf";
-                _wisScore += 1;
-                _maxHealth += 1;
+                player.RaceChange("Hill Dwarf");
+                player.WisdomScoreChange(1);
+                player.MaxHealthChange(1);
             }
             if (subRaceRoll == "Mountain Dwarf")
             {
-                _chaRace = "Mountain Dwarf";
-                _strScore += 2;
-                _profArmor.Add("Light");
-                _profArmor.Add("Medium");
+                player.RaceChange("Mountain Dwarf");
+                player.StrengthScoreChange(1);
+                player.AddArmorProf("Light");
+                player.AddArmorProf("Medium");
             }
         }
+        private string RandomDwarfSubrace()
+        {
+            return dwarfSubRace[lib.RandomRoll(0,dwarfSubRace.Count)];
+        }
+
     }
 
-    class Elf : Character
+    class Elf
     {
-        public Elf()
+        private readonly Library lib = new Library();
+        public void MakeElf(Character player)
         {
-            Library lib = new Library();
-            _dexScore += 2;
-            _chaSpeed += 30;
-            _chaAbilities.Add("Darkvision");
-            _perceptionProf = true;
-            _chaAbilities.Add("Fey Ancestry");
-            _chaAbilities.Add("Trance");
-            _profLanguages.Add("Common");
-            _profLanguages.Add("Elvish");
+            player.DexterityScoreChange(2);
+            player.SpeedChange(30);
+            player.AddAbility("Darkvision");
+            player.PerceptionProfToggle(true);
+            player.AddAbility("Fey Ancestry");
+            player.AddAbility("Trance");
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf("Elvish");
             string subRaceRoll = lib.RandomElfSubrace();
             if (subRaceRoll == "High Elf")
             {
-                _chaRace = "High Elf";
-                _intScore += 1;
-                _profWeapons.Add("Longsword");
-                _profWeapons.Add("Shortsword");
-                _profWeapons.Add("Shortbow");
-                _profWeapons.Add("Longbow");
-                _profLanguages.Add(lib.RandomAllLanguage());
-                _chaSpellList.Add(lib.RandomWizardCantrip());
+                player.RaceChange("High Elf");
+                player.IntelligenceScoreChange(1);
+                player.AddWeaponProf("Longsword");
+                player.AddWeaponProf("Shortsword");
+                player.AddWeaponProf("Shortbow");
+                player.AddWeaponProf("Longbow");
+                player.AddLanguageProf(lib.RandomAllLanguage());
+                player.AddSpell(lib.RandomWizardCantrip());
             }
             if (subRaceRoll == "Wood Elf")
             {
-                _chaRace = "Wood Elf";
-                _profWeapons.Add("Longsword");
-                _profWeapons.Add("Shortsword");
-                _profWeapons.Add("Shortbow");
-                _profWeapons.Add("Longbow");
-                _chaSpeed += 5;
-                _chaAbilities.Add("Mask of the Wild");
+                player.RaceChange("Wood Elf");
+                player.AddWeaponProf("Longsword");
+                player.AddWeaponProf("Shortsword");
+                player.AddWeaponProf("Shortbow");
+                player.AddWeaponProf("Longbow");
+                player.SpeedChange(5);
+                player.AddAbility("Mask of the Wild");
             }
             if (subRaceRoll == "Dark Elf (Drow)")
             {
-                _chaRace = "Dark Elf (Drow)";
-                _chaScore += 1;
-                _chaAbilities.Add("Sunlight Sensitivity");
-                _chaAbilities.Add("Drow Magic");
-                _profWeapons.Add("Rapiers");
-                _profWeapons.Add("Shortsword");
-                _profWeapons.Add("Hand Crossbows");
+                player.RaceChange("Dark Elf (Drow)");
+                player.CharismaScoreChange(1);
+                player.AddAbility("Sunlight Sensitivity");
+                player.AddAbility("Drow Magic");
+                player.AddWeaponProf("Rapiers");
+                player.AddWeaponProf("Shortsword");
+                player.AddWeaponProf("Hand Crossbow");
             }
         }
     }
 
-    class Halfling : Character
+    class Halfling
     {
-        public Halfling()
+        private readonly Library lib = new Library();
+        public void MakeHalfling(Character player)
         {
-            Library lib = new Library();
-            _dexScore += 2;
-            _chaSpeed += 25;
-            _chaAbilities.Add("Lucky");
-            _chaAbilities.Add("Brave");
-            _chaAbilities.Add("Halfling Nimbleness");
-            _profLanguages.Add("Common");
-            _profLanguages.Add("Halfling");
+            player.DexterityScoreChange(2);
+            player.SpeedChange(25);
+            player.AddAbility("Lucky");
+            player.AddAbility("Brave");
+            player.AddAbility("Halfling Nimbleness");
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf("Halfling");
             string subRaceRoll = lib.RandomHalflingSubRace();
             if (subRaceRoll == "Lightfoot")
             {
-                _chaRace = "Lightfoot Halfling";
-                _chaScore += 1;
-                _chaAbilities.Add("Naturally Stealthy");
+                player.RaceChange("Lightfoot Halfling");
+                player.CharismaScoreChange(1);
+                player.AddAbility("Naturally Stealthy");
             }
             if (subRaceRoll == "Stout")
             {
-                _chaRace = "Stout Halfling";
-                _conScore += 1;
-                _chaAbilities.Add("Stout Resilience");
+                player.RaceChange("Stout Halfling");
+                player.ConstitutionScoreChange(1);
+                player.AddAbility("Stout Resilience");
             }
-
-
         }
-
     }
 
     class Human : Character
     {
-        public Human()
+        private readonly Library lib = new Library();
+        public void MakeHuman(Character player)
         {
-            Library lib = new Library();
-            _chaRace = "Human";
-            _strScore += 1;
-            _dexScore += 1;
-            _conScore += 1;
-            _wisScore += 1;
-            _intScore += 1;
-            _chaScore += 1;
-            _chaSpeed += 30;
-            _profLanguages.Add("Common");
-            _profLanguages.Add(lib.RandomAllLanguage());
+            player.RaceChange("Human");
+            player.StrengthScoreChange(1);
+            player.DexterityScoreChange(1);
+            player.ConstitutionScoreChange(1);
+            player.WisdomScoreChange(1);
+            player.IntelligenceScoreChange(1);
+            player.CharismaScoreChange(1);
+            player.SpeedChange(30);
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf(lib.RandomAllLanguage());
         }
     }
 

@@ -181,11 +181,6 @@ namespace Character_Creator
             {"Lightfoot" },
             {"Stout" }
         };
-        public List<string> dwarfSubRace = new List<string>()
-        {
-            {"Hill Dwarf" },
-            {"Mountain Dwarf" }
-        };
         public List<string> elfSubRace = new List<string>()
         {
             {"High Elf" },
@@ -284,10 +279,6 @@ namespace Character_Creator
         }
 
         //Returns Subraces
-        public string RandomDwarfSubrace()
-        {
-            return dwarfSubRace[rnd.Next(dwarfSubRace.Count)];
-        }
         public string RandomElfSubrace()
         {
             return elfSubRace[rnd.Next(elfSubRace.Count)];
@@ -324,6 +315,11 @@ namespace Character_Creator
         {
             return barbSkillOptions[rnd.Next(barbSkillOptions.Count)];
         }
-            
+
+        //Returns Random Numbers
+        public int RandomRoll(int low, int high) {return rnd.Next(low, high);}
+        public int RandomRoll(int high) { return rnd.Next(high); }
+
+
     }
 }

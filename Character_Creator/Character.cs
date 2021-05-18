@@ -758,6 +758,15 @@ namespace Character_Creator
                 _chaAC += change;
             }
         }
+        public void SpeedChange(int change)
+        {
+            if (_chaSpeed + change < 0)
+            {
+                _chaSpeed = 0;
+            }
+            else { _chaSpeed += change; }
+        }
+        public void RaceChange(string race) { _chaRace = race; }
 
         //Methods to add things to lists
         public void AddLanguageProf(string addition)

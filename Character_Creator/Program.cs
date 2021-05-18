@@ -28,8 +28,6 @@ namespace Character_Creator
                 player.UpdateAbilityMods();
                 player.UpdateSkills();
                 player.PrintAllDump();
-                ClassSelection(Dwarf, player)
-
             }
             else if (raceRoll == 1)
             {
@@ -102,7 +100,6 @@ namespace Character_Creator
                 player.UpdateAbilityMods();
                 player.UpdateSkills();
                 player.PrintAllDump();
-                ClassSelection(;
             }
             
             Console.WriteLine("Generate New Character? [y/n]");
@@ -114,19 +111,6 @@ namespace Character_Creator
             }
             
         }
-        private void ClassSelection(Character player)
-        {
-
-        }
-        private void ClassSelection(Dwarf player)
-        {
-
-        }
-        private void ClassSelection(Elf player)
-        {
-
-        }
-
         static public int Seeder()
         {
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
