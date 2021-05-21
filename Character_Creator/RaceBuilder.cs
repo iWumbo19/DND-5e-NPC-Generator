@@ -178,101 +178,107 @@ namespace Character_Creator
             {
                 player.AddResistance("Acid");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Black Dragonborn");
             }
             if (dragonbornSubRaceRoll == "Blue")
             {
                 player.AddResistance("Lightning");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Blue Dragonborn");
             }
             if (dragonbornSubRaceRoll == "Brass")
             {
                 player.AddResistance("Fire");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Brass Dragonborn");
+
             }
             if (dragonbornSubRaceRoll == "Bronze")
             {
                 player.AddResistance("Lightning");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Bronze Dragonborn");
             }
             if (dragonbornSubRaceRoll == "Copper")
             {
                 player.AddResistance("Acid");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Copper Dragonborn");
             }
             if (dragonbornSubRaceRoll == "Gold")
             {
                 player.AddResistance("Fire");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Gold Dragonborn");
             }
             if (dragonbornSubRaceRoll == "Green")
             {
                 player.AddResistance("Poison");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Green Dragonborn");
             }
             if (dragonbornSubRaceRoll == "Red")
             {
                 player.AddResistance("Fire");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Red Dragonborn");
             }
             if (dragonbornSubRaceRoll == "Silver")
             {
                 player.AddResistance("Cold");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("Silver Dragonborn");
             }
             if (dragonbornSubRaceRoll == "White")
             {
                 player.AddResistance("Cold");
                 player.AddAbility("Breath Weapon");
+                player.RaceChange("White Dragonborn");
             }
 
         }
     }
 
-    class Gnome : Character
+    class Gnome
     {
         private readonly Library lib = new Library();
-        public void Gnome(Character player)
+        public void MakeGnome(Character player)
         {
-            player.
-
-
-
-            _intScore += 2;
-            _chaSpeed += 25;
-            _chaAbilities.Add("Darkvision");
-            _chaAbilities.Add("Gnome Cunning");
-            _profLanguages.Add("Common");
-            _profLanguages.Add("Gnomish");
+            player.IntelligenceScoreChange(2);
+            player.SpeedChange(30);
+            player.AddAbility("Darkvision");
+            player.AddAbility("Gnome Cunning");
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf("Gnomish");
             string subRaceRoll = lib.RandomGnomeSubrace();
             if (subRaceRoll == "Forest Gnome")
             {
-                _chaRace = "Forest Gnome";
-                _dexScore += 1;
-                _chaSpellList.Add("Minor Illusion");
-                _chaAbilities.Add("Speak with Small Beasts");
+                player.RaceChange("Forest Gnome");
+                player.DexterityScoreChange(1);
+                player.AddSpell("Minor Illusion");
+                player.AddAbility("Speak with Small Beasts");
             }
             if (subRaceRoll == "Rock Gnome")
             {
-                _chaRace = "Rock Gnome";
-                _conScore += 1;
-                _chaAbilities.Add("Artificer's Lore");
-                _chaAbilities.Add("Tinker");
-                _profTools.Add("Tinker's Tools");
+                player.RaceChange("Rock Gnome");
+                player.ConstitutionScoreChange(1);
+                player.AddAbility("Artificer's Lore");
+                player.AddAbility("Tinker");
+                player.AddToolProf("Tinker's Tools");
             }
         }
-
     }
 
-    class HalfElf : Character
+    class HalfElf
     {
-        public HalfElf()
+        private readonly Library lib = new Library();
+        public void MakeHalfElf(Character player)
         {
-            Library lib = new Library();
-            _chaScore += 2;
-            _chaSpeed += 30;
-            _chaRace = "Half Elf";
-            _chaAbilities.Add("Darkvision");
-            _chaAbilities.Add("Fey Ancestry");
+            player.CharismaScoreChange(2);
+            player.SpeedChange(30);
+            player.RaceChange("Half Elf");
+            player.AddAbility("Darkvision");
+            player.AddAbility("Fey Ancestry");
             string abilityRoll1 = lib.RandomAbilityCategory();
             string abilityRoll2 = lib.RandomAbilityCategory();
             string skillRoll1 = lib.RandomSkillCategory();
@@ -291,44 +297,44 @@ namespace Character_Creator
                     skillRoll2 = lib.RandomSkillCategory();
                 }
             }
-            RandomAbilityUpgrade(abilityRoll1);
-            RandomAbilityUpgrade(abilityRoll2);
-            CharacterProfGet(skillRoll1);
-            CharacterProfGet(skillRoll2);
-            _profLanguages.Add(lib.RandomAllLanguage());
+            player.RandomAbilityUpgrade(abilityRoll1);
+            player.RandomAbilityUpgrade(abilityRoll2);
+            player.CharacterProfGet(skillRoll1);
+            player.CharacterProfGet(skillRoll2);
+            player.AddLanguageProf(lib.RandomAllLanguage());
         }
     }
 
-    class HalfOrc : Character
+    class HalfOrc
     {
-        public HalfOrc()
+        public void MakeHalfOrc(Character player)
         {
-            _chaRace = "Half Orc";
-            _strScore += 2;
-            _conScore += 1;
-            _chaSpeed += 30;
-            _chaAbilities.Add("Darkvision");
-            _intimidationProf = true;
-            _chaAbilities.Add("Relentless Endurance");
-            _chaAbilities.Add("Savage Attacks");
-            _profLanguages.Add("Common");
-            _profLanguages.Add("Orc");
+            player.RaceChange("Half Orc");
+            player.StrengthScoreChange(2);
+            player.ConstitutionScoreChange(1);
+            player.SpeedChange(30);
+            player.AddAbility("Darkvision");
+            player.IntimidationProfToggle(true);
+            player.AddAbility("Relentless Endurance");
+            player.AddAbility("Savage Attacks");
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf("Orc");
         }
     }
 
-    class Tiefling : Character
+    class Tiefling
     {
-        public Tiefling()
+        public void MakeTiefling(Character player)
         {
-            _chaRace = "Tiefling";
-            _intScore += 1;
-            _chaScore += 2;
-            _chaSpeed += 30;
-            _chaAbilities.Add("Darkvision");
-            _chaResistances.Add("Fire");
-            _chaSpellList.Add("Thaumaturgy");
-            _profLanguages.Add("Common");
-            _profLanguages.Add("Infernal");
+            player.RaceChange("Tiefling");
+            player.IntelligenceScoreChange(1);
+            player.CharismaScoreChange(2);
+            player.SpeedChange(30);
+            player.AddAbility("Darkvision");
+            player.AddResistance("Fire");
+            player.AddSpell("Thaumaturgy");
+            player.AddLanguageProf("Common");
+            player.AddLanguageProf("Infernal");
         }
     }
 

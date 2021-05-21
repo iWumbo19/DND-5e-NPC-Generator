@@ -274,10 +274,6 @@ namespace Character_Creator
         {
             return halflingSubRace[rnd.Next(halflingSubRace.Count)];
         }
-        public string RandomDragonbornAncestry()
-        {
-            return dragonbornAncestry[rnd.Next(dragonbornAncestry.Count)];
-        }
         public string RandomGnomeSubrace()
         {
             return gnomeSubRace[rnd.Next(gnomeSubRace.Count)];

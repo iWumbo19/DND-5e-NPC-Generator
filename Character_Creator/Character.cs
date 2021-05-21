@@ -169,7 +169,7 @@ namespace Character_Creator
             _passiveWis = 8 + _perceptionScore;
             _passiveInt = 8 + _investigationScore;
         }
-        protected void CharacterProfGet(string skill)
+        public void CharacterProfGet(string skill)
         {
             Library lib = new Library();
             if (skill == lib.skillCategories[0])
@@ -245,7 +245,7 @@ namespace Character_Creator
                 _survivalProf = true;
             }
         }
-        protected void RandomAbilityUpgrade(string ability)
+        public void RandomAbilityUpgrade(string ability)
         {
             Library lib = new Library();
             if (ability == lib.abilityCategories[0])
@@ -275,7 +275,7 @@ namespace Character_Creator
         }
 
         //RETURNS TRUE IF YOU ARE PROFICIENT
-        protected bool AmIProficient(string skill)
+        public bool AmIProficient(string skill)
         {
             Library lib = new Library();
             if (skill == lib.abilityCategories[0])
