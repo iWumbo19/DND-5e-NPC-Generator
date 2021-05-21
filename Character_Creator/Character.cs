@@ -720,6 +720,15 @@ namespace Character_Creator
             else { _chaScore = 30; }
         }
 
+        //Returns Ability Modifiers
+        public int ReturnStrMod() { return _strMod; }
+        public int ReturnDexMod() { return _dexMod; }
+        public int ReturnConMod() { return _conMod; }
+        public int ReturnWisMod() { return _wisMod; }
+        public int ReturnIntMod() { return _intMod; }
+        public int ReturnChaMod() { return _chaMod; }
+
+
         //Changes Misc Statistics
         public void CurrentHealthChange(int change)
         {
@@ -747,6 +756,7 @@ namespace Character_Creator
                 _maxHealth += change;
             }
         }
+        public void MaxHealthSet(int set) { _maxHealth = set; }
         public void AcChange(int change)
         {
             if (_chaAC + change < 0)
@@ -767,6 +777,7 @@ namespace Character_Creator
             else { _chaSpeed += change; }
         }
         public void RaceChange(string race) { _chaRace = race; }
+        public void HitDiceChange(int die) { _hitDie = die; }
 
         //Methods to add things to lists
         public void AddLanguageProf(string addition)
