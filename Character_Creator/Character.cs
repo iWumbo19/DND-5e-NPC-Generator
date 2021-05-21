@@ -777,7 +777,12 @@ namespace Character_Creator
             else { _chaSpeed += change; }
         }
         public void RaceChange(string race) { _chaRace = race; }
+        public void ClassChange(string nuclass) { _chaClass = nuclass; }
         public void HitDiceChange(int die) { _hitDie = die; }
+
+        //Returns Misc Stats
+        public string ClassReturn() { return _chaClass; }
+
 
         //Methods to add things to lists
         public void AddLanguageProf(string addition)
