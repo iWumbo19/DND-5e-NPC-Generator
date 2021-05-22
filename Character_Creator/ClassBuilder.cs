@@ -22,6 +22,7 @@ namespace Character_Creator
         {
             player.HitDiceChange(12);
             player.MaxHealthSet(12 + player.ReturnConMod());
+            player.ClassChange("Barbarian");
             player.AddArmorProf("Light Armor");
             player.AddArmorProf("Medium Armor");
             player.AddArmorProf("Shields");
@@ -78,6 +79,7 @@ namespace Character_Creator
         {
             player.HitDiceChange(8);
             player.MaxHealthSet(8 + player.ReturnConMod());
+            player.ClassChange("Bard");
             player.AddArmorProf("Light Armor");
             player.AddWeaponProf("Simple Weapons");
             player.AddWeaponProf("Hand Crossbow");
@@ -278,11 +280,33 @@ namespace Character_Creator
     class Druid
     {
         private readonly Library lib = new Library();
+        private List<string> druidSkillChoices = new List<string>()
+        {
+            {"Arcana" },
+            {"Animal Handling" },
+            {"Insight" },
+            {"Medcine" },
+            {"Nature" },
+            {"Perception" },
+            {"Religion" },
+            {"Survival" }
+        };
+        public List<string> spellDruidCantrip = new List<string>()
+        {
+            {"Druidcraft" },
+            {"Guidance" },
+            {"Mending" },
+            {"Poison Spray" },
+            {"Produce Flame" },
+            {"Resistance" },
+            {"Shillelagh" }
+        };
 
         public void DruidOne(Character player)
         {
             player.HitDiceChange(8);
             player.MaxHealthChange(8 + player.ReturnConMod());
+            player.ClassChange("Druid");
             player.AddArmorProf("Light Armor");
             player.AddArmorProf("Medium Armor");
             player.AddArmorProf("Shields");
@@ -291,7 +315,236 @@ namespace Character_Creator
             player.AddWeaponProf("Dart");
             player.AddWeaponProf("Javelin");
             player.AddWeaponProf("Mace");
-            player.AddWeaponProf("Quarterstaff")
+            player.AddWeaponProf("Quarterstaff");
+            player.AddWeaponProf("Scimitar");
+            player.AddWeaponProf("Sickle");
+            player.AddWeaponProf("Sling");
+            player.AddWeaponProf("Spear");
+            player.AddToolProf("Herbalism Kit");
+            player.IntProfToggle(true);
+            player.WisProfToggle(true);
+            string druidSkillRoll1 = druidSkillChoices[lib.RandomRoll(druidSkillChoices.Count())];
+            string druidSkillRoll2 = druidSkillChoices[lib.RandomRoll(druidSkillChoices.Count())];
+            if (druidSkillRoll1 == druidSkillRoll2)
+            {
+                while (druidSkillRoll1 == druidSkillRoll2)
+                {
+                    druidSkillRoll2 = druidSkillChoices[lib.RandomRoll(druidSkillChoices.Count())];
+                }
+            }
+            player.CharacterProfGet(druidSkillRoll1);
+            player.CharacterProfGet(druidSkillRoll2);
+            player.AddLanguageProf("Druidic");
+            string druidCantrip1 = spellDruidCantrip[lib.RandomRoll(spellDruidCantrip.Count())];
+            string druidCantrip2 = spellDruidCantrip[lib.RandomRoll(spellDruidCantrip.Count())];
+            player.AddSpell(druidCantrip1);
+            player.AddSpell(druidCantrip2);
+            player.AddAbility("Wild Shape");            
+        }
+    }
+
+    class Fighter
+    {
+        private Library lib = new Library();
+        private List<string> fighterSkillOptions = new List<string>()
+        {
+            {"Acrobatics" },
+            {"Animal Handling" },
+            {"Athletics" },
+            {"History" },
+            {"Insight" },
+            {"Intimidation" },
+            {"Perception" },
+            {"Survival" }
+        };
+        private List<string> fighterFightingStyle = new List<string>()
+        {
+            {"Archery" },
+            {"Defense" },
+            {"Dueling" },
+            {"Great Weapon Fighting" },
+            {"Protection" },
+            {"Two-Weapon Fighting" }
+        };
+
+        public void FighterOne(Character player)
+        {
+            player.HitDiceChange(10);
+            player.MaxHealthSet(10 + player.ReturnConMod());
+            player.AddArmorProf("Heavy Armor");
+            player.AddArmorProf("Medium Armor");
+            player.AddArmorProf("Light Armor");
+            player.AddArmorProf("Shields");
+            player.AddWeaponProf("Simple Weapons");
+            player.AddWeaponProf("Martial Weapons");
+            player.StrProfToggle(true);
+            player.ConProfToggle(true);
+            string fighterSkillRoll1 = fighterSkillOptions[lib.RandomRoll(fighterSkillOptions.Count())];
+            string fighterSkillRoll2 = fighterSkillOptions[lib.RandomRoll(fighterSkillOptions.Count())];
+            if (fighterSkillRoll1 == fighterSkillRoll2)
+            {
+                while (fighterSkillRoll1 == fighterSkillRoll2)
+                {
+                    fighterSkillRoll2 = fighterSkillOptions[lib.RandomRoll(fighterSkillOptions.Count())];
+                }
+            }
+            string fighterStyleChoice = fighterFightingStyle[lib.RandomRoll(fighterFightingStyle.Count())];
+            player.ClassChange(fighterStyleChoice + " Fighter");
+        }
+    }
+
+    class Monk
+    {
+        private readonly Library lib = new Library();
+        private List<string> monkToolChoices = new List<string>()
+        {
+            {"Alchemist's supplies" },
+            {"Brewer's supplies" },
+            {"Calligrapher's supplies" },
+            {"Carpenter's tools" },
+            {"Cartographer's tools" },
+            {"Cobbler's tools" },
+            {"Cook's utensils" },
+            {"Glassblower's tools" },
+            {"Jeweler's tools" },
+            {"Leatherworker's tools" },
+            {"Mason's tools" },
+            {"Painter's supplies" },
+            {"Potter's tools" },
+            {"Smith's tools" },
+            {"Tinker's tools" },
+            {"Weaver's tools" },
+            {"Woodcarver's tools" },
+            {"Bagpipes" },
+            {"Drum" },
+            {"Dulcimer" },
+            {"Flute" },
+            {"Lute" },
+            {"Lyre" },
+            {"Horn" },
+            {"Pan Flute" },
+            {"Shawm" },
+            {"Viol" }
+        };
+
+        public void MonkOne(Character player)
+        {
+            player.HitDiceChange(8);
+            player.MaxHealthSet(8 + player.ReturnConMod());
+            player.ClassChange("Monk");
+            player.AddWeaponProf("Simple Weapons");
+            player.AddWeaponProf("Shortswords");
+            string monkToolRoll = monkToolChoices[lib.RandomRoll(monkToolChoices.Count())];
+            player.AddToolProf(monkToolRoll);
+            player.StrProfToggle(true);
+            player.DexProfToggle(true);
+            player.AddAbility("Unarmored Defense");
+            player.AddAbility("Martial Arts");
+        }
+    }
+
+    class Paladin
+    {
+        private readonly Library lib = new Library();
+        private List<string> paladinSkillChoices = new List<string>()
+        {
+            {"Athletics" },
+            {"Insight" },
+            {"Intimidation" },
+            {"Medicine" },
+            {"Persuasion" },
+            {"Religion" }
+        };
+        public void PaladinOne(Character player)
+        {
+            player.HitDiceChange(10);
+            player.MaxHealthSet(10 + player.ReturnConMod());
+            player.ClassChange("Paladin");
+            player.AddArmorProf("Light Armor");
+            player.AddArmorProf("Medium Armor");
+            player.AddArmorProf("Heavy Armor");
+            player.AddArmorProf("Shields");
+            player.AddWeaponProf("Simple Weapons");
+            player.AddWeaponProf("Martial Weapons");
+            player.WisProfToggle(true);
+            player.ChaProfToggle(true);
+            string paladinSkillRoll1 = paladinSkillChoices[lib.RandomRoll(paladinSkillChoices.Count())];
+            string paladinSkillRoll2 = paladinSkillChoices[lib.RandomRoll(paladinSkillChoices.Count())];
+            if (paladinSkillRoll1 == paladinSkillRoll2)
+            {
+                while (paladinSkillRoll1 == paladinSkillRoll2)
+                {
+                    paladinSkillRoll2 = paladinSkillChoices[lib.RandomRoll(paladinSkillChoices.Count())];
+                }
+            }
+            player.CharacterProfGet(paladinSkillRoll1);
+            player.CharacterProfGet(paladinSkillRoll2);
+            player.AddAbility("Divine Sense");
+            player.AddAbility("Lay on Hands");
+        }
+    }
+
+    class Ranger
+    {
+        private Library lib = new Library();
+        private List<string> rangerSkillOptions = new List<string>()
+        {
+            {"Animal Handling" },
+            {"Athletics" },
+            {"Insight" },
+            {"Investigation" },
+            {"Nature" },
+            {"Perception" },
+            {"Stealth" },
+            {"Survival" }
+        };
+        public void RangerOne(Character player)
+        {
+            player.HitDiceChange(10);
+            player.MaxHealthSet(10 + player.ReturnConMod());
+            player.ClassChange("Ranger");
+            player.AddArmorProf("Light Armor");
+            player.AddArmorProf("Medium Armor");
+            player.AddArmorProf("Shields");
+            player.AddWeaponProf("Simple Weapons");
+            player.AddWeaponProf("Martial Weapons");
+            player.StrProfToggle(true);
+            player.DexProfToggle(true);
+            string rangerSkillRoll1 = rangerSkillOptions[lib.RandomRoll(rangerSkillOptions.Count())];
+            string rangerSkillRoll2 = rangerSkillOptions[lib.RandomRoll(rangerSkillOptions.Count())];
+            string rangerSkillRoll3 = rangerSkillOptions[lib.RandomRoll(rangerSkillOptions.Count())];
+            if (rangerSkillRoll1 == rangerSkillRoll2 ^ rangerSkillRoll2 == rangerSkillRoll3 ^ rangerSkillRoll3 == rangerSkillRoll1)
+            {
+                while (rangerSkillRoll1 == rangerSkillRoll2 ^ rangerSkillRoll2 == rangerSkillRoll3 ^ rangerSkillRoll3 == rangerSkillRoll1)
+                {
+                    rangerSkillRoll2 = rangerSkillOptions[lib.RandomRoll(rangerSkillOptions.Count())];
+                    rangerSkillRoll3 = rangerSkillOptions[lib.RandomRoll(rangerSkillOptions.Count())];
+                }
+            }
+            player.AddAbility("Favored Enemy");
+            player.AddAbility("Natural Explorer");
+        }
+    }
+
+    class Rouge
+    {
+        private readonly Library lib = new Library();
+        private
+        public void RougeOne(Character player)
+        {
+            player.HitDiceChange(8);
+            player.MaxHealthSet(8 + player.ReturnConMod());
+            player.ClassChange("Rouge");
+            player.AddArmorProf("Light Armor");
+            player.AddWeaponProf("Simple Weapons");
+            player.AddWeaponProf("Hand Crossbows");
+            player.AddWeaponProf("Longsword");
+            player.AddWeaponProf("Rapier");
+            player.AddWeaponProf("Shortsword");
+            player.AddToolProf("Thieve's tools");
+            player.DexProfToggle(true);
+            player.IntProfToggle(true);
+
         }
     }
 }

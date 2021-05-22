@@ -19,98 +19,107 @@ namespace Character_Creator
 
         public void GenerateNew()
         {
-            Random rnd = new Random(Seeder());            
-            int raceRoll = rnd.Next(lib.raceList.Count);
-            if (raceRoll == 0)
+            Library lib = new Library();
+            Character player = new Character();
+            string raceRoll = lib.raceList[lib.RandomRoll(lib.raceList.Count())];
+            //Moves through races
+            if (raceRoll == "Dwarf")
             {
-                Dwarf player = new Dwarf();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Dwarf race = new Dwarf();
+                race.MakeDwarf(player);
             }
-            else if (raceRoll == 1)
+            if (raceRoll == "Elf")
             {
-                Elf player = new Elf();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Elf race = new Elf();
+                race.MakeElf(player);
             }
-            else if (raceRoll == 2)
+            if (raceRoll == "Halfling")
             {
-                Halfling player = new Halfling();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Halfling race = new Halfling();
+                race.MakeHalfling(player);
             }
-            else if (raceRoll == 3)
+            if (raceRoll == "Human")
             {
-                Human player = new Human();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Human race = new Human();
+                race.MakeHuman(player);
             }
-            else if (raceRoll == 4)
+            if (raceRoll == "Dragonborn")
             {
-                Dragonborn player = new Dragonborn();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Dragonborn race = new Dragonborn();
+                race.MakeDragonborn(player);
             }
-            else if (raceRoll == 5)
+            if (raceRoll == "Gnome")
             {
-                Gnome player = new Gnome();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Gnome race = new Gnome();
+                race.MakeGnome(player);
             }
-            else if (raceRoll == 6)
+            if (raceRoll == "Half-elf")
             {
-                HalfElf player = new HalfElf();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                HalfElf race = new HalfElf();
+                race.MakeHalfElf(player);
             }
-            else if (raceRoll == 7)
+            if (raceRoll == "Half-orc")
             {
-                HalfOrc player = new HalfOrc();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                HalfOrc race = new HalfOrc();
+                race.MakeHalfOrc(player);
             }
-            else if (raceRoll == 8)
+            if (raceRoll == "Tiefling")
             {
-                Tiefling player = new Tiefling();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Tiefling race = new Tiefling();
+                race.MakeTiefling(player);
             }
-            else
+
+            //Moves through classes (BETA)
+            string classRoll = lib.classList[lib.RandomRoll(lib.classList.Count())];
+            if (classRoll == "Barbarian")
             {
-                Character player = new Character();
-                player.RollNewStats();
-                player.UpdateAbilityMods();
-                player.UpdateSkills();
-                player.PrintAllDump();
+                Barbarian myclass = new Barbarian();
+                myclass.BarbarianOne(player);
             }
-            
-            Console.WriteLine("Generate New Character? [y/n]");
-            string ask = Console.ReadLine();
-            if (ask == "y")
+            if (classRoll == "Bard")
+            {
+                Bard myclass = new Bard();
+                myclass.BardOne(player);
+            }
+            if (classRoll == "Cleric")
+            {
+                Cleric myclass = new Cleric();
+                myclass.ClericOne(player);
+            }
+            if (classRoll == "Druid")
+            {
+                Druid myclass = new Druid();
+                myclass.DruidOne(player);
+            }
+            if (classRoll == "Fighter")
+            {
+                Fighter myclass = new Fighter();
+                myclass.FighterOne(player);
+            }
+            if (classRoll == "Monk")
+            {
+                Monk myclass = new Monk();
+                myclass.MonkOne(player);
+            }
+
+            player.RollNewStats();
+            player.UpdateAbilityMods();
+            player.UpdateSkills();
+
+            player.PrintAllDump();
+            Console.WriteLine("\n\nGenerate New? [y:n]");
+            string answer = Console.ReadLine();
+            if (answer == "y")
             {
                 GenerateNew();
-
             }
-            
         }
+
+
+
+
+
+        //DONT FUCKING TOUCH THIS CODE
         static public int Seeder()
         {
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();

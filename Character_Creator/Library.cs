@@ -136,15 +136,26 @@ namespace Character_Creator
             {"Shawm" },
             {"Viol" }
         };
-        public List<string> barbSkillOptions = new List<string>()
-            {
-                {"Animal Handling" },
-                {"Athletics" },
-                {"Intimidation" },
-                {"Nature" },
-                {"Perception" },
-                {"Survival" }
-            };
+        public List<string> artisansTools = new List<string>()
+        {
+            {"Alchemist's supplies" },
+            {"Brewer's supplies" },
+            {"Calligrapher's supplies" },
+            {"Carpenter's tools" },
+            {"Cartographer's tools" },
+            {"Cobbler's tools" },
+            {"Cook's utensils" },
+            {"Glassblower's tools" },
+            {"Jeweler's tools" },
+            {"Leatherworker's tools" },
+            {"Mason's tools" },
+            {"Painter's supplies" },
+            {"Potter's tools" },
+            {"Smith's tools" },
+            {"Tinker's tools" },
+            {"Weaver's tools" },
+            {"Woodcarver's tools" }
+        };
 
         //Basic PHB Races/Classes
         public List<string> raceList = new List<string>()
@@ -167,12 +178,12 @@ namespace Character_Creator
             {"Druid" },
             {"Fighter" },
             {"Monk" },
-            {"Paladin" },
-            {"Ranger" },
-            {"Rouge" },
-            {"Sorcerer" },
-            {"Warlock" },
-            {"Wizard" }
+            //{"Paladin" },
+            //{"Ranger" },
+            //{"Rouge" },
+            //{"Sorcerer" },
+            //{"Warlock" },
+            //{"Wizard" }
         };
 
         //Lists containing PHB Subraces
@@ -293,10 +304,6 @@ namespace Character_Creator
         public string RandomSkillCategory()
         {
             return skillCategories[rnd.Next(skillCategories.Count)];
-        }
-        public string RandomBarbSkill()
-        {
-            return barbSkillOptions[rnd.Next(barbSkillOptions.Count)];
         }
 
         //Returns Random Numbers

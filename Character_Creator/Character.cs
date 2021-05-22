@@ -885,6 +885,12 @@ namespace Character_Creator
             {
                 Console.WriteLine(i);
             }
+
+            Console.WriteLine("\nSpells:");
+            foreach (string i in _chaSpellList)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
