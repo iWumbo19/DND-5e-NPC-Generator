@@ -527,6 +527,20 @@ namespace Character_Creator
     class Rouge
     {
         private readonly Library lib = new Library();
+        private List<string> rougeSkillOptions = new List<string>()
+        {
+            {"Acrobatics" },
+            {"Athletics" },
+            {"Deception" },
+            {"Insight" },
+            {"Intimidation" },
+            {"Investigation" },
+            {"Perception" },
+            {"Performance" },
+            {"Persuasion" },
+            {"Sleight of Hand" },
+            {"Stealth" }
+        };
         public void RougeOne(Character player)
         {
             player.HitDiceChange(8);
@@ -541,7 +555,116 @@ namespace Character_Creator
             player.AddToolProf("Thieve's tools");
             player.DexProfToggle(true);
             player.IntProfToggle(true);
-
+            string rougeSkillRoll1 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+            string rougeSkillRoll2 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+            string rougeSkillRoll3 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+            string rougeSkillRoll4 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+            if (UniqueSkills(rougeSkillRoll1, rougeSkillRoll2, rougeSkillRoll3, rougeSkillRoll4) == false)
+            {
+                rougeSkillRoll1 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+                rougeSkillRoll2 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+                rougeSkillRoll3 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+                rougeSkillRoll4 = rougeSkillOptions[lib.RandomRoll(rougeSkillOptions.Count())];
+            }
+            player.CharacterProfGet(rougeSkillRoll1);
+            player.CharacterProfGet(rougeSkillRoll2);
+            player.CharacterProfGet(rougeSkillRoll3);
+            player.CharacterProfGet(rougeSkillRoll4);
+            player.AddAbility("Expertise");
+            player.AddAbility("Sneak Attack");
+            player.AddLanguageProf("Thieves' Cant");
         }
+
+        private bool UniqueSkills(string skill1, string skill2, string skill3, string skill4)
+        {
+            if (skill1 == skill2 ^ skill1 == skill3 ^ skill1 == skill4 ^ skill2 == skill3 ^ skill2 == skill4 ^ skill3 == skill4)
+            {
+                return false;
+            }
+            else return true;
+        }
+    }
+
+    class Sorcerer
+    {
+        private readonly Library lib = new Library();
+        private List<string> sorcererSkillOptions = new List<string>()
+        {
+            {"Arcana" },
+            {"Deception" },
+            {"Insight" },
+            {"Intimidation" },
+            {"Persuasion" },
+            {"Religion" }
+        };
+        public List<string> spellSorcererCantrips = new List<string>()
+        {
+            {"Acid Splash" },
+            {"Chill Touch" },
+            {"Dancing Lights" },
+            {"Fire Bolt" },
+            {"Light" },
+            {"Mage Hand" },
+            {"Mending" },
+            {"Message" },
+            {"Minor Illusion" },
+            {"Poison Spray" },
+            {"Prestidigitation" },
+            {"Ray of Frost" },
+            {"Shocking Grasp" },
+            {"True Strike" }
+        };
+        public void SorcererOne(Character player)
+        {
+            player.HitDiceChange(6);
+            player.MaxHealthSet(6 + player.ReturnConMod());
+            player.ClassChange("Sorcerer");
+            player.AddWeaponProf("Dagger");
+            player.AddWeaponProf("Dart");
+            player.AddWeaponProf("Sling");
+            player.AddWeaponProf("Quarterstaff");
+            player.AddWeaponProf("Light Crossbow");
+            player.ConProfToggle(true);
+            player.ChaProfToggle(true);
+            string sorcererSkillRoll1 = sorcererSkillOptions[lib.RandomRoll(sorcererSkillOptions.Count())];
+            string sorcererSkillRoll2 = sorcererSkillOptions[lib.RandomRoll(sorcererSkillOptions.Count())];
+            if (sorcererSkillRoll1 == sorcererSkillRoll2)
+            {
+                while (sorcererSkillRoll1 == sorcererSkillRoll2)
+                {
+                    sorcererSkillRoll2 = sorcererSkillOptions[lib.RandomRoll(sorcererSkillOptions.Count())];
+                }
+            }
+            player.CharacterProfGet(sorcererSkillRoll1);
+            player.CharacterProfGet(sorcererSkillRoll2);
+            string sorcererCantrip1 = spellSorcererCantrips[lib.RandomRoll(spellSorcererCantrips.Count())];
+            string sorcererCantrip2 = spellSorcererCantrips[lib.RandomRoll(spellSorcererCantrips.Count())];
+            string sorcererCantrip3 = spellSorcererCantrips[lib.RandomRoll(spellSorcererCantrips.Count())];
+            string sorcererCantrip4 = spellSorcererCantrips[lib.RandomRoll(spellSorcererCantrips.Count())];
+            if (UniqueSkills(sorcererCantrip1, sorcererCantrip2, sorcererCantrip3, sorcererCantrip4) == false)
+            {
+                sorcererCantrip2 = spellSorcererCantrips[lib.RandomRoll(spellSorcererCantrips.Count())];
+                sorcererCantrip3 = spellSorcererCantrips[lib.RandomRoll(spellSorcererCantrips.Count())];
+                sorcererCantrip4 = spellSorcererCantrips[lib.RandomRoll(spellSorcererCantrips.Count())];
+            }
+            player.AddSpell(sorcererCantrip1);
+            player.AddSpell(sorcererCantrip2);
+            player.AddSpell(sorcererCantrip3);
+            player.AddSpell(sorcererCantrip4);
+        }
+        private bool UniqueSkills(string skill1, string skill2, string skill3, string skill4)
+        {
+            if (skill1 == skill2 ^ skill1 == skill3 ^ skill1 == skill4 ^ skill2 == skill3 ^ skill2 == skill4 ^ skill3 == skill4)
+            {
+                return false;
+            }
+            else return true;
+        }
+    }
+
+    class Warlock
+    {
+        private readonly Library lib = new Library();
+
     }
 }
