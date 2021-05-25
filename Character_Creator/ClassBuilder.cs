@@ -22,7 +22,6 @@ namespace Character_Creator
         {
             player.HitDiceChange(12);
             player.MaxHealthSet(12 + player.ReturnConMod());
-            player.ClassChange("Barbarian");
             player.AddArmorProf("Light Armor");
             player.AddArmorProf("Medium Armor");
             player.AddArmorProf("Shields");
@@ -79,7 +78,6 @@ namespace Character_Creator
         {
             player.HitDiceChange(8);
             player.MaxHealthSet(8 + player.ReturnConMod());
-            player.ClassChange("Bard");
             player.AddArmorProf("Light Armor");
             player.AddWeaponProf("Simple Weapons");
             player.AddWeaponProf("Hand Crossbow");
@@ -339,7 +337,7 @@ namespace Character_Creator
             string druidCantrip2 = spellDruidCantrip[lib.RandomRoll(spellDruidCantrip.Count())];
             player.AddSpell(druidCantrip1);
             player.AddSpell(druidCantrip2);
-            player.AddAbility("Wild Shape");            
+            player.AddAbility("Wild Shape");
         }
     }
 
@@ -529,7 +527,6 @@ namespace Character_Creator
     class Rouge
     {
         private readonly Library lib = new Library();
-        private
         public void RougeOne(Character player)
         {
             player.HitDiceChange(8);
