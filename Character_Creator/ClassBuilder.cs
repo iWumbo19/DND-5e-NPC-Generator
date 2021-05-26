@@ -22,6 +22,7 @@ namespace Character_Creator
         {
             player.HitDiceChange(12);
             player.MaxHealthSet(12 + player.ReturnConMod());
+            player.ClassChange("Barbarian");
             player.AddArmorProf("Light Armor");
             player.AddArmorProf("Medium Armor");
             player.AddArmorProf("Shields");
@@ -78,6 +79,7 @@ namespace Character_Creator
         {
             player.HitDiceChange(8);
             player.MaxHealthSet(8 + player.ReturnConMod());
+            player.ClassChange("Bard");
             player.AddArmorProf("Light Armor");
             player.AddWeaponProf("Simple Weapons");
             player.AddWeaponProf("Hand Crossbow");
@@ -675,6 +677,16 @@ namespace Character_Creator
             {"Nature" },
             {"Religion" }
         };
+        public List<string> spellWarlockCantrip = new List<string>()
+        {
+            {"Chill Touch" },
+            {"Eldritch Blast" },
+            {"Mage Hand" },
+            {"Minor Illusion" },
+            {"Poison Spray" },
+            {"Prestidigitation" },
+            {"True Strike" }
+        };
 
         public void WarlockOne(Character player)
         {
@@ -685,7 +697,99 @@ namespace Character_Creator
             player.AddWeaponProf("Simple Weapons");
             player.WisProfToggle(true);
             player.ChaProfToggle(true);
+            string warlockSkillRoll1 = warlockSkillOptions[lib.RandomRoll(warlockSkillOptions.Count())];
+            string warlockSkillRoll2 = warlockSkillOptions[lib.RandomRoll(warlockSkillOptions.Count())];
+            if (warlockSkillRoll1 == warlockSkillRoll2)
+            {
+                while (warlockSkillRoll1 == warlockSkillRoll2)
+                {
+                    warlockSkillRoll2 = warlockSkillOptions[lib.RandomRoll(warlockSkillOptions.Count())];
+                }
+            }
+            player.CharacterProfGet(warlockSkillRoll1);
+            player.CharacterProfGet(warlockSkillRoll2);
+            player.AddAbility("Other Worldy Patron");
+            player.AddAbility("Pact Magic");
+            string warlockSpellChoice1 = spellWarlockCantrip[lib.RandomRoll(spellWarlockCantrip.Count())];
+            string warlockSpellChoice2 = spellWarlockCantrip[lib.RandomRoll(spellWarlockCantrip.Count())];
+            if (warlockSpellChoice1 == warlockSpellChoice2)
+            {
+                while (warlockSpellChoice1 == warlockSpellChoice2)
+                {
+                    warlockSpellChoice2 = spellWarlockCantrip[lib.RandomRoll(spellWarlockCantrip.Count())];
+                }
+            }
+            player.AddSpell(warlockSpellChoice1);
+            player.AddSpell(warlockSpellChoice2);
+        }
+    }
 
+    class Wizard
+    {
+        private readonly Library lib = new Library();
+        private List<string> wizardSkillOptions = new List<string>()
+        {
+            {"Arcana" },
+            {"History" },
+            {"Insight" },
+            {"Investigation" },
+            {"Medicine" },
+            {"Religion" }
+        };
+        public List<string> spellWizardCantrips = new List<string>()
+        {
+            {"Acid Splash" },
+            {"Chill Touch" },
+            {"Dancing Lights" },
+            {"Fire Bolt" },
+            {"Light" },
+            {"Mage Hand" },
+            {"Mending" },
+            {"Message" },
+            {"Minor Illusion" },
+            {"Poison Spray" },
+            {"Prestidigitation" },
+            {"Ray of Frost" },
+            {"Shocking Grasp" },
+            {"True Strike" }
+        };
+
+
+        public void WizardOne(Character player)
+        {
+            player.HitDiceChange(6);
+            player.MaxHealthSet(6 + player.ReturnConMod());
+            player.ClassChange("Wizard");
+            player.AddWeaponProf("Dagger");
+            player.AddWeaponProf("Dart");
+            player.AddWeaponProf("Sling");
+            player.AddWeaponProf("Quarterstaff");
+            player.AddWeaponProf("Light Crossbow");
+            player.IntProfToggle(true);
+            player.WisProfToggle(true);
+            string wizardSkillRoll1 = wizardSkillOptions[lib.RandomRoll(wizardSkillOptions.Count())];
+            string wizardSkillRoll2 = wizardSkillOptions[lib.RandomRoll(wizardSkillOptions.Count())];
+            if (wizardSkillRoll1 == wizardSkillRoll2)
+            {
+                while (wizardSkillRoll1 == wizardSkillRoll2)
+                {
+                    wizardSkillRoll2 = wizardSkillOptions[lib.RandomRoll(wizardSkillOptions.Count())];
+                }
+            }
+            player.CharacterProfGet(wizardSkillRoll1);
+            player.CharacterProfGet(wizardSkillRoll2);
+            string wizardSpellChoice1 = spellWizardCantrips[lib.RandomRoll(spellWizardCantrips.Count())];
+            string wizardSpellChoice2 = spellWizardCantrips[lib.RandomRoll(spellWizardCantrips.Count())];
+            string wizardSpellChoice3 = spellWizardCantrips[lib.RandomRoll(spellWizardCantrips.Count())];
+            if (wizardSpellChoice1 == wizardSpellChoice2 ^ wizardSpellChoice1 == wizardSpellChoice3 ^ wizardSpellChoice2 == wizardSpellChoice3)
+            {
+                while (wizardSpellChoice1 == wizardSpellChoice2 ^ wizardSpellChoice1 == wizardSpellChoice3 ^ wizardSpellChoice2 == wizardSpellChoice3)
+                {
+                    wizardSpellChoice2 = spellWizardCantrips[lib.RandomRoll(spellWizardCantrips.Count())];
+                    wizardSpellChoice3 = spellWizardCantrips[lib.RandomRoll(spellWizardCantrips.Count())];
+                }
+            }
+            player.AddAbility("Arcane Recovery");
         }
     }
 }

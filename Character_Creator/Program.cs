@@ -69,7 +69,7 @@ namespace Character_Creator
                 race.MakeTiefling(player);
             }
 
-            //Moves through classes (BETA)
+            //Moves through classes
             string classRoll = lib.classList[lib.RandomRoll(lib.classList.Count())];
             if (classRoll == "Barbarian")
             {
@@ -100,6 +100,36 @@ namespace Character_Creator
             {
                 Monk myclass = new Monk();
                 myclass.MonkOne(player);
+            }
+            if (classRoll == "Paladin")
+            {
+                Paladin myclass = new Paladin();
+                myclass.PaladinOne(player);
+            }
+            if (classRoll == "Ranger")
+            {
+                Ranger myclass = new Ranger();
+                myclass.RangerOne(player);
+            }
+            if (classRoll == "Rouge")
+            {
+                Rouge myclass = new Rouge();
+                myclass.RougeOne(player);
+            }
+            if (classRoll == "Sorcerer")
+            {
+                Sorcerer myclass = new Sorcerer();
+                myclass.SorcererOne(player);
+            }
+            if (classRoll == "Warlock")
+            {
+                Warlock myclass = new Warlock();
+                myclass.WarlockOne(player);
+            }
+            if (classRoll == "Wizard")
+            {
+                Wizard myclass = new Wizard();
+                myclass.WizardOne(player);
             }
 
             player.RollNewStats();
