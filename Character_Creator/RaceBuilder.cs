@@ -337,7 +337,4 @@ namespace Character_Creator
             player.AddLanguageProf("Infernal");
         }
     }
-
-
-
 }
