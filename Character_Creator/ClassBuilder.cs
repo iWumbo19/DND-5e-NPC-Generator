@@ -665,6 +665,27 @@ namespace Character_Creator
     class Warlock
     {
         private readonly Library lib = new Library();
+        private List<string> warlockSkillOptions = new List<string>()
+        {
+            {"Arcana" },
+            {"Deception" },
+            {"History" },
+            {"Intimidation" },
+            {"Investigation" },
+            {"Nature" },
+            {"Religion" }
+        };
 
+        public void WarlockOne(Character player)
+        {
+            player.HitDiceChange(8);
+            player.MaxHealthSet(8 + player.ReturnConMod());
+            player.ClassChange("Warlock");
+            player.AddArmorProf("Light Armor");
+            player.AddWeaponProf("Simple Weapons");
+            player.WisProfToggle(true);
+            player.ChaProfToggle(true);
+
+        }
     }
 }
