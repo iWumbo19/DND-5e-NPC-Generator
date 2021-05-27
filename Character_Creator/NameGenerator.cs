@@ -166,5 +166,100 @@ namespace Character_Creator
         };
 
         //Halfing Names
+        public List<string> HalflingMale = new List<string>()
+        {
+            {"Alton" },
+            {"Ander" },
+            {"Cade" },
+            {"Corrin" },
+            {"Eldon" },
+            {"Errich" },
+            {"Finnan" },
+            {"Garret" },
+            {"Lindal" },
+            {"Lyle" },
+            {"Merric" },
+            {"Milo" },
+            {"Osborn" },
+            {"Perrin" },
+            {"Reed" },
+            {"Roscoe" },
+            {"Wellby" }
+        };
+        public List<string> HalflingFemale = new List<string>()
+        {
+            {"Andry" },
+            {"Bree" },
+            {"Callie" },
+            {"Cora" },
+            {"Euphemia" },
+            {"Jillian" },
+            {"Kithri" },
+            {"Lavinia" },
+            {"Lidda" },
+            {"Merla" },
+            {"Nedda" },
+            {"Paela" },
+            {"Portia" },
+            {"Seraphina" },
+            {"Shaena" },
+            {"Trym" },
+            {"Vani" },
+            {"Verna" }
+        };
+        public List<string> HalflingFamily = new List<string>()
+        {
+            {"Brushgather" },
+            {"Goodbarrel" },
+            {"Greenbottle" },
+            {"High-hill" },
+            {"Hilltopple" },
+            {"Leagallow" },
+            {"Tealeaf" },
+            {"Thorngage" },
+            {"Tosscobble" },
+            {"Underbough" }
+        };
+
+        public List<string> DragonbornMale = new List<string>()
+        {
+            {"Arjhan" },
+            {"Balasar" },
+            {"Bharash" },
+            {"Donaar" },
+            {"Ghesh" },
+            {"Heskan" },
+            {"Kriv" },
+            {"Medrash" },
+            {"Mehen" },
+            {"Nadarr" },
+            {'Pendjed' },
+            {"Patrin" },
+            {"Rhogar" },
+            {"Shamash" },
+            {"Shedinn" },
+            {"Tarhun" },
+            {"Torinn" }
+        };
+        public List<string> DragonbornFemale = new List<string>()
+        {
+            {"Akra" },
+            {"Biri" },
+            {"Daar" },
+            {"Farideh" },
+            {"Harann" },
+            {"Havilar" },
+            {"Jheri" },
+            {"Kava" },
+            {"Korinn" },
+            {"Mishann" },
+            {"Nala" },
+            {"Perra" },
+            {"Raiann" },
+            {"Sora" },
+            {"Surina" },
+            {"Thava" },
+            {"Uadjit" }
+        };
     }
 }
