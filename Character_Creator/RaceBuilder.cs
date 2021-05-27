@@ -131,7 +131,7 @@ namespace Character_Creator
         }
     }
 
-    class Human : Character
+    class Human
     {
         private readonly Library lib = new Library();
         public void MakeHuman(Character player)
