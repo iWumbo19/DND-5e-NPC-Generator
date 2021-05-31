@@ -115,12 +115,117 @@ namespace Character_Creator
                 x++;
             }
             statRolls.Remove(statRolls.Min());
-            _strScore = statRolls[0];
-            _dexScore = statRolls[1];
-            _conScore = statRolls[2];
-            _wisScore = statRolls[3];
-            _intScore = statRolls[4];
-            _chaScore = statRolls[5];
+            statRolls.Sort();
+
+            //Assings Stats based on Classes
+            if (_chaClass.Contains("Barbarian"))
+            {
+                _strScore = statRolls[5];
+                _dexScore = statRolls[3];
+                _conScore = statRolls[4];
+                _wisScore = statRolls[2];
+                _intScore = statRolls[1];
+                _chaScore = statRolls[0];
+            }
+            else if (_chaClass.Contains("Bard"))
+            {
+                _strScore = statRolls[0];
+                _dexScore = statRolls[3];
+                _conScore = statRolls[2];
+                _wisScore = statRolls[1];
+                _intScore = statRolls[4];
+                _chaScore = statRolls[5];
+            }
+            else if (_chaClass.Contains("Cleric"))
+            {
+                _strScore = statRolls[4];
+                _dexScore = statRolls[3];
+                _conScore = statRolls[2];
+                _wisScore = statRolls[5];
+                _intScore = statRolls[1];
+                _chaScore = statRolls[0];
+            }
+            else if (_chaClass.Contains("Druid"))
+            {
+                _strScore = statRolls[0];
+                _dexScore = statRolls[4];
+                _conScore = statRolls[3];
+                _wisScore = statRolls[5];
+                _intScore = statRolls[2];
+                _chaScore = statRolls[1];
+            }
+            else if (_chaClass.Contains("Fighter"))
+            {
+                _strScore = statRolls[5];
+                _dexScore = statRolls[3];
+                _conScore = statRolls[4];
+                _wisScore = statRolls[1];
+                _intScore = statRolls[2];
+                _chaScore = statRolls[0];
+            }
+            else if (_chaClass.Contains("Monk"))
+            {
+                _strScore = statRolls[0];
+                _dexScore = statRolls[5];
+                _conScore = statRolls[3];
+                _wisScore = statRolls[4];
+                _intScore = statRolls[2];
+                _chaScore = statRolls[1];
+            }
+            else if (_chaClass.Contains("Paladin"))
+            {
+                _strScore = statRolls[4];
+                _dexScore = statRolls[0];
+                _conScore = statRolls[3];
+                _wisScore = statRolls[2];
+                _intScore = statRolls[1];
+                _chaScore = statRolls[5];
+            }
+            else if (_chaClass.Contains("Ranger"))
+            {
+                _strScore = statRolls[0];
+                _dexScore = statRolls[5];
+                _conScore = statRolls[1];
+                _wisScore = statRolls[4];
+                _intScore = statRolls[2];
+                _chaScore = statRolls[3];
+            }
+            else if (_chaClass.Contains("Rouge"))
+            {
+                _strScore = statRolls[2];
+                _dexScore = statRolls[5];
+                _conScore = statRolls[3];
+                _wisScore = statRolls[1];
+                _intScore = statRolls[0];
+                _chaScore = statRolls[4];
+            }
+            else if (_chaClass.Contains("Sorcerer"))
+            {
+                _strScore = statRolls[0];
+                _dexScore = statRolls[4];
+                _conScore = statRolls[3];
+                _wisScore = statRolls[2];
+                _intScore = statRolls[1];
+                _chaScore = statRolls[5];
+            }
+            else if (_chaClass.Contains("Warlock"))
+            {
+                _strScore = statRolls[3];
+                _dexScore = statRolls[2];
+                _conScore = statRolls[3];
+                _wisScore = statRolls[1];
+                _intScore = statRolls[0];
+                _chaScore = statRolls[5];
+            }
+            else if (_chaClass.Contains("Wizard"))
+            {
+                _strScore = statRolls[0];
+                _dexScore = statRolls[4];
+                _conScore = statRolls[3];
+                _wisScore = statRolls[2];
+                _intScore = statRolls[5];
+                _chaScore = statRolls[1];
+            }
         }
         public void UpdateAbilityMods()
         {
@@ -779,6 +884,11 @@ namespace Character_Creator
         public void RaceChange(string race) { _chaRace = race; }
         public void ClassChange(string nuclass) { _chaClass = nuclass; }
         public void HitDiceChange(int die) { _hitDie = die; }
+
+        public void NameChange(string nuName)
+        {
+            _chaName = nuName;
+        }
 
         //Returns Misc Stats
         public string ClassReturn() { return _chaClass; }

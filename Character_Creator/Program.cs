@@ -132,6 +132,54 @@ namespace Character_Creator
                 myclass.WizardOne(player);
             }
 
+            //Generates Name
+            if (raceRoll == "Dwarf")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.DwarfReturn());
+            }
+            if (raceRoll == "Elf")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.ElfReturn());
+            }
+            if (raceRoll == "Halfling")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.HalflingfReturn());
+            }
+            if (raceRoll == "Human")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.HumanReturn());
+            }
+            if (raceRoll == "Dragonborn")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.DragonbornReturn());
+            }
+            if (raceRoll == "Gnome")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.GnomeReturn());
+            }
+            if (raceRoll == "Half-elf")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.HalfelfReturn());
+            }
+            if (raceRoll == "Half-orc")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.HalforcReturn());
+            }
+            if (raceRoll == "Tiefling")
+            {
+                NameGenerator names = new NameGenerator();
+                player.NameChange(names.TieflingReturn());
+            }
+
+            //Finishes Initializing Stats
             player.RollNewStats();
             player.UpdateAbilityMods();
             player.UpdateSkills();

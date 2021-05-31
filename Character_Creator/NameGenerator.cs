@@ -8,8 +8,11 @@ namespace Character_Creator
 {
     class NameGenerator
     {
+        //Creates Library object available for methods
+        private readonly Library lib = new Library();
+
         //Dwarf Names
-        public List<string> DwarfMale = new List<string>()
+        private readonly List<string> dwarfMale = new List<string>()
         {
             {"Adrik" },
             {"Alberich" },
@@ -42,7 +45,7 @@ namespace Character_Creator
             {"Viet" },
             {"Vondal" }
         };
-        public List<string> DwarfFemale = new List<string>()
+        private readonly List<string> dwarfFemale = new List<string>()
         {
             { "Amber" },
             { "Artin" },
@@ -68,7 +71,7 @@ namespace Character_Creator
             { "Torgga" },
             { "Vistra" }
         };
-        public List<string> DwarfClan = new List<string>()
+        private readonly List<string> dwarfClan = new List<string>()
         {
             { "Balderk" },
             { "Battlehammer" },
@@ -88,7 +91,7 @@ namespace Character_Creator
         };
 
         //Elf Names
-        public List<string> ElfMale = new List<string>()
+        private readonly List<string> elfMale = new List<string>()
         {
             {"Adran" },
             {"Aelar" },
@@ -118,7 +121,7 @@ namespace Character_Creator
             {"Theren" },
             {"Varis" }
         };
-        public List<string> ElfFemale = new List<string>()
+        private readonly List<string> elfFemale = new List<string>()
         {
             {"Adrie" },
             {"Althaea" },
@@ -151,7 +154,7 @@ namespace Character_Creator
             {"Valanthe" },
             {"Xanaphia" }
         };
-        public List<string> ElfFamily = new List<string>()
+        private readonly List<string> elfFamily = new List<string>()
         {
             {"Amakiir (Gemflower)" },
             {"Amastacia(Starflower)" },
@@ -166,7 +169,7 @@ namespace Character_Creator
         };
 
         //Halfing Names
-        public List<string> HalflingMale = new List<string>()
+        private readonly List<string> halflingMale = new List<string>()
         {
             {"Alton" },
             {"Ander" },
@@ -186,7 +189,7 @@ namespace Character_Creator
             {"Roscoe" },
             {"Wellby" }
         };
-        public List<string> HalflingFemale = new List<string>()
+        private readonly List<string> halflingFemale = new List<string>()
         {
             {"Andry" },
             {"Bree" },
@@ -207,7 +210,7 @@ namespace Character_Creator
             {"Vani" },
             {"Verna" }
         };
-        public List<string> HalflingFamily = new List<string>()
+        private readonly List<string> halflingFamily = new List<string>()
         {
             {"Brushgather" },
             {"Goodbarrel" },
@@ -221,7 +224,154 @@ namespace Character_Creator
             {"Underbough" }
         };
 
-        public List<string> DragonbornMale = new List<string>()
+        //Human Names
+        private readonly List<string> humanMale = new List<string>()
+        {
+            {"Adran" },
+            {"Aelar" },
+            {"Aramil" },
+            {"Arannis" },
+            {"Aust" },
+            {"Beiro" },
+            {"Berrian" },
+            {"Carric" },
+            {"Erdan" },
+            {"Galinndan" },
+            {"Hadarai" },
+            {"Heian" },
+            {"Himo" },
+            {"Immeral" },
+            {"Ivellios" },
+            {"Laucian" },
+            {"Mindartis" },
+            {"Paelias" },
+            {"Peren" },
+            {"Quarion" },
+            {"Riardon" },
+            {"Rolen" },
+            {"Soveliss" },
+            {"Thamior" },
+            {"Tharivol" },
+            {"Theren" },
+            {"Varis" },
+            {"Adrik" },
+            {"Alberich" },
+            {"Baern" },
+            {"Barendd" },
+            {"Brottor" },
+            {"Bruenor" },
+            {"Dain" },
+            {"Darrak" },
+            {"Delg" },
+            {"Eberk" },
+            {"Einkil" },
+            {"Fargrim" },
+            {"Flint" },
+            {"Gardain" },
+            {"Harbek" },
+            {"Kildrak" },
+            {"Morgran" },
+            {"Orsik" },
+            {"Oskar" },
+            {"Rangrim" },
+            {"Rurik" },
+            {"Taklinn" },
+            {"Thoradin" },
+            {"Thorin" },
+            {"Tordek" },
+            {"Traubon" },
+            {"Travok" },
+            {"Ulfgar" },
+            {"Viet" },
+            {"Vondal" }
+        };
+        private readonly List<string> humanFemale = new List<string>()
+        {
+            {"Adrie" },
+            {"Althaea" },
+            {"Anastrianna" },
+            {"Andraste" },
+            {"Antinua" },
+            {"Bethrynna" },
+            {"Birel" },
+            {"Caelynn" },
+            {"Drusilia" },
+            {"Enna" },
+            {"Felosial" },
+            {"Ielenia" },
+            {"Jelenneth" },
+            {"Keyleth" },
+            {"Leshanna" },
+            {"Lia" },
+            {"Meriele" },
+            {"Mialee" },
+            {"Naivara" },
+            {"Quelenna" },
+            {"Quilathe" },
+            {"Sariel" },
+            {"Shanairra" },
+            {"Shava" },
+            {"Silaqui" },
+            {"Theirastra" },
+            {"Thia" },
+            {"Vadania" },
+            {"Valanthe" },
+            {"Xanaphia" },
+            { "Amber" },
+            { "Artin" },
+            { "Audhild" },
+            { "Bardryn" },
+            { "Dagnal" },
+            { "Diesa" },
+            { "Eldeth" },
+            { "Falkrunn" },
+            { "Finellen" },
+            { "Gunnloda" },
+            { "Gurdis" },
+            { "Helja" },
+            { "Hlin" },
+            { "Kathra" },
+            { "Kristryd" },
+            { "Ilde" },
+            { "Liftrasa" },
+            { "Mardred" },
+            { "Riswynn" },
+            { "Sannl" },
+            { "Torbera" },
+            { "Torgga" },
+            { "Vistra" }
+        };
+        private readonly List<string> humanFamily = new List<string>()
+        {
+            {"Amakiir (Gemflower)" },
+            {"Amastacia(Starflower)" },
+            {"Galanodel (Moonwhisper)" },
+            {"Holimion (Diamonddew)" },
+            {"Ilphelkiir (Gemblossom)" },
+            {"Liadon (Silverfrond)" },
+            {"Meliamne (Oakenheel)" },
+            {"Nailo (Nightbreeze)" },
+            {"Siannodel (Moonbrook)" },
+            {"Xiloscient (Goldpetal)" },
+            { "Balderk" },
+            { "Battlehammer" },
+            { "Brawnanvil" },
+            { "Dankil" },
+            { "Fireforge" },
+            { "Frostbeard" },
+            { "Gorunn" },
+            { "Holderhek" },
+            { "Ironfist" },
+            { "Loderr" },
+            { "Lutgehr" },
+            { "Rumnaheim" },
+            { "Strakeln" },
+            { "Torunn" },
+            { "Ungart" }
+        };
+
+        //Dragonborn Names
+        private readonly List<string> dragonbornMale = new List<string>()
         {
             {"Arjhan" },
             {"Balasar" },
@@ -233,7 +383,7 @@ namespace Character_Creator
             {"Medrash" },
             {"Mehen" },
             {"Nadarr" },
-            {'Pendjed' },
+            {"Pendjed" },
             {"Patrin" },
             {"Rhogar" },
             {"Shamash" },
@@ -241,7 +391,7 @@ namespace Character_Creator
             {"Tarhun" },
             {"Torinn" }
         };
-        public List<string> DragonbornFemale = new List<string>()
+        private readonly List<string> dragonbornFemale = new List<string>()
         {
             {"Akra" },
             {"Biri" },
@@ -261,5 +411,352 @@ namespace Character_Creator
             {"Thava" },
             {"Uadjit" }
         };
+        private readonly List<string> dragonbornClan = new List<string>()
+        {
+            { "Clenthtinthiallor" },
+            { "Daardendrian" },
+            { "Delmirev" },
+            { "Drachendandion" },
+            { "Fenkenkebradon" },
+            { "Kepeshkmolik" },
+            { "Kerrhylon" },
+            { "Kimbatuul" },
+            { "Linxakasendalor" },
+            { "Myastan" },
+            { "Nemmonis" },
+            { "Norixius" },
+            { "Ophinshtalajiir" },
+            { "Prexijandilin" },
+            { "Shestendeliath" },
+            { "Turnuroth" },
+            { "Verthisathurgiesh" },
+            { "Yarjerit" }
+        };
+
+        //Gnome Names
+        private readonly List<string> gnomeMale = new List<string>()
+        {
+            {"Alston" },
+            {"Alvyn" },
+            {"Boddynock" },
+            {"Brocc" },
+            {"Burgell" },
+            {"Dimble" },
+            {"Eldon" },
+            {"Erky" },
+            {"Fonkin" },
+            {"Frug" },
+            {"Gerbo" },
+            {"Gimble" },
+            {"Glim" },
+            {"Jebeddo" },
+            {"Kellen" },
+            {"Namfoodle" },
+            {"Orryn" },
+            {"Roondar" },
+            {"Seebo" },
+            {"Sindri" },
+            {"Warryn" },
+            {"Wrenn" },
+            {"Zook" }
+        };
+        private readonly List<string> gnomeFemale = new List<string>()
+        {
+            {"Bimpnottin" },
+            {"Breena" },
+            {"Caramip" },
+            {"Carlin" },
+            {"Donella" },
+            {"Duvamil" },
+            {"Ella" },
+            {"Ellyjobell" },
+            {"Ellywick" },
+            {"Lilli" },
+            {"Loppmottin" },
+            {"Lorilla" },
+            {"Mardnab" },
+            {"Nissa" },
+            {"Nyx" },
+            {"Oda" },
+            {"Orla" },
+            {"Roywyn" },
+            {"Shamil" },
+            {"Tana" },
+            {"Waywocket" },
+            {"Zanna" }
+        };
+        private readonly List<string> gnomeClan = new List<string>()
+        {
+            {"Beren" },
+            {"Daergel" },
+            {"Folkor" },
+            {"Garrick" },
+            {"Nackle" },
+            {"Murnig" },
+            {"Ningel" },
+            {"Raulnor" },
+            {"Scheppen" },
+            {"Timbers" },
+            {"Turen" }
+        };
+        private readonly List<string> gnomeNickname = new List<string>()
+        {
+            {"Aleslosh" },
+            {"Ashhearth" },
+            {"Badger" },
+            {"Cloak" },
+            {"Doublelock" },
+            {"Filchbatter" },
+            {"Fnipper" },
+            {"Ku" },
+            {"Nim" },
+            {"Oneshoe" },
+            {"Pock" },
+            {"Sparklegem" }
+        };
+
+        //Halforc Names
+        private readonly List<string> halforcMale = new List<string>()
+        {
+            {"Dench" },
+            {"Feng" },
+            {"Gell" },
+            {"Henk" },
+            {"Holg" },
+            {"Imsh" },
+            {"Keth" },
+            {"Krusk" },
+            {"Mhurren" },
+            {"Ront" },
+            {"Shump" },
+            {"Thokk" }
+        };
+        private readonly List<string> halforcFemale = new List<string>()
+        {
+            {"Baggi" },
+            {"Emen" },
+            {"Engong" },
+            {"Kansif" },
+            {"Myev" },
+            {"Neega" },
+            {"Ovak" },
+            {"Ownka" },
+            {"Shautha" },
+            {"Sutha" },
+            {"Vola" },
+            {"Volen" },
+            {"Yevelda" }
+        };
+
+        //Tiefling Names
+        private readonly List<string> tieflingMale = new List<string>()
+        {
+            {"Akmenos" },
+            {"Amnon" },
+            {"Barakas" },
+            {"Damakos" },
+            {"Ekemon" },
+            {"Lados" },
+            {"Kairon" },
+            {"Leucis" },
+            {"Melech" },
+            {"Mordai" },
+            {"Morthos" },
+            {"Pelaios" },
+            {"Skamos" },
+            {"Therai" }
+        };
+        private readonly List<string> tieflingFemale = new List<string>()
+        {
+            {"Akta" },
+            {"Anakis" },
+            {"Bryseis" },
+            {"Criella" },
+            {"Damaia" },
+            {"Ea" },
+            {"Kallista" },
+            {"Lerissa" },
+            {"Makaria" },
+            {"Nemeia" },
+            {"Orianna" },
+            {"Phelaia" },
+            {"Rieta" }
+        };
+        private readonly List<string> tieflingVirtue = new List<string>()
+        {
+            {"Art" },
+            {"Carrion" },
+            {"Chant" },
+            {"Creed" },
+            {"Despair" },
+            {"Excellence" },
+            {"Fear" },
+            {"Glory" },
+            {"Hope" },
+            {"Ideal" },
+            {"Music" },
+            {"Nowhere" },
+            {"Open" },
+            {"Poetry" },
+            {"Quest" },
+            {"Random" },
+            {"Reverence" },
+            {"Sorrow" },
+            {"Temerity" },
+            {"Torment" },
+            {"Weary" }
+        };
+
+        public string DwarfReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                 firstName = dwarfMale[lib.RandomRoll(dwarfMale.Count())];
+            }
+            else
+            {
+                 firstName = dwarfFemale[lib.RandomRoll(dwarfFemale.Count())];
+            }
+            string clanName = dwarfClan[lib.RandomRoll(dwarfClan.Count())];
+            string returnName = String.Format("{0} {1}", firstName, clanName);
+            return returnName;
+        }
+
+        public string ElfReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = elfMale[lib.RandomRoll(elfMale.Count())];
+            }
+            else
+            {
+                firstName = elfFemale[lib.RandomRoll(elfFemale.Count())];
+            }
+            string familyName = elfFamily[lib.RandomRoll(elfFamily.Count())];
+            string returnName = String.Format("{0} {1}", firstName, familyName);
+            return returnName;
+        }
+
+        public string HalflingfReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = halflingMale[lib.RandomRoll(halflingMale.Count())];
+            }
+            else
+            {
+                firstName = halflingFemale[lib.RandomRoll(halflingFemale.Count())];
+            }
+            string familyName = halflingFamily[lib.RandomRoll(halflingFamily.Count())];
+            string returnName = String.Format("{0} {1}", firstName, familyName);
+            return returnName;
+        }
+
+        public string HumanReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = humanMale[lib.RandomRoll(humanMale.Count())];
+            }
+            else
+            {
+                firstName = humanFemale[lib.RandomRoll(humanFemale.Count())];
+            }
+            string familyName = humanFamily[lib.RandomRoll(humanFamily.Count())];
+            string returnName = String.Format("{0} {1}", firstName, familyName);
+            return returnName;
+        }
+
+        public string DragonbornReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = dragonbornMale[lib.RandomRoll(dragonbornMale.Count())];
+            }
+            else
+            {
+                firstName = dragonbornFemale[lib.RandomRoll(dragonbornFemale.Count())];
+            }
+            string familyName = dragonbornClan[lib.RandomRoll(dragonbornClan.Count())];
+            string returnName = String.Format("{0} {1}", firstName, familyName);
+            return returnName;
+        }
+
+        public string GnomeReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = gnomeMale[lib.RandomRoll(gnomeMale.Count())];
+            }
+            else
+            {
+                firstName = gnomeFemale[lib.RandomRoll(gnomeFemale.Count())];
+            }
+            string nickName = gnomeNickname[lib.RandomRoll(gnomeNickname.Count())];
+            string familyName = gnomeClan[lib.RandomRoll(gnomeClan.Count())];
+            string returnName = String.Format("{0} \"{1}\" {2}", firstName, nickName, familyName);
+            return returnName;
+        }
+
+        public string HalfelfReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = humanMale[lib.RandomRoll(humanMale.Count())];
+            }
+            else
+            {
+                firstName = humanFemale[lib.RandomRoll(humanFemale.Count())];
+            }
+            string familyName = humanFamily[lib.RandomRoll(humanFamily.Count())];
+            string returnName = String.Format("{0} {1}", firstName, familyName);
+            return returnName;
+        }
+
+        public string HalforcReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = halforcMale[lib.RandomRoll(halforcMale.Count())];
+            }
+            else
+            {
+                firstName = halforcFemale[lib.RandomRoll(halforcFemale.Count())];
+            }
+            return firstName;
+        }
+
+        public string TieflingReturn()
+        {
+            int genderRoll = lib.RandomRoll(0, 2);
+            string firstName;
+            if (genderRoll == 1)
+            {
+                firstName = tieflingMale[lib.RandomRoll(tieflingMale.Count())];
+            }
+            else
+            {
+                firstName = tieflingFemale[lib.RandomRoll(tieflingFemale.Count())];
+            }
+            string familyName = tieflingVirtue[lib.RandomRoll(tieflingVirtue.Count())];
+            string returnName = String.Format("{0} {1}", firstName, familyName);
+            return returnName;
+        }
     }
 }
