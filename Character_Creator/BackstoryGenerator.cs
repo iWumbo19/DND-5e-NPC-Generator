@@ -30,11 +30,7 @@ namespace Character_Creator
             {"Sailor" },
             {"Soldier" },
             {"Urchin" }
-        };
-        private readonly List<string> backstoryBase = new List<string>()
-        {
-            {"Fill in holes" }
-        };
+        };        
         private readonly List<string> homeTowns = new List<string>()
         {
             {"Home Town 1" },
@@ -58,7 +54,7 @@ namespace Character_Creator
         {
             {"Fill in holes" }
         };
-        private readonly List<string> prizedPosetion = new List<string>()
+        private readonly List<string> prizedPossesion = new List<string>()
         {
             {"Fill in holes" }
         };
@@ -74,5 +70,26 @@ namespace Character_Creator
         {
             {"Fill in holes" }
         };
+        private readonly List<string> backstoryBase = new List<string>()
+        {
+            {"Fill in holes" }
+        };
+
+        public void CompileStories()
+        {
+            
+        }
+
+        public string HomeTowns() { return homeTowns[lib.RandomRoll(homeTowns.Count())]; }
+        public string EnemyBase() { return enemyBase[lib.RandomRoll(enemyBase.Count())]; }
+        public string TimeElapse() { return timeElapse[lib.RandomRoll(timeElapse.Count())]; }
+        public string FantasyLocation() { return fantasyLocation[lib.RandomRoll(fantasyLocation.Count())]; }
+        public string SomethingToFightFor() { return somethingToFightFor[lib.RandomRoll(somethingToFightFor.Count())]; }
+        public string PrizedPossesion() { return prizedPossesion[lib.RandomRoll(prizedPossesion.Count())]; }
+        public string NameOfCoolWeapon() { return nameOfCoolWeapon[lib.RandomRoll(nameOfCoolWeapon.Count())]; }
+        public string NameOfCoolItem() { return nameOfCoolItem[lib.RandomRoll(nameOfCoolItem.Count())]; }
+        public string CharacterRelative() { return characterRelative[lib.RandomRoll(characterRelative.Count())]; }
+
+        
     }
 }
