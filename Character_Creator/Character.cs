@@ -884,6 +884,7 @@ namespace Character_Creator
         public void RaceChange(string race) { _chaRace = race; }
         public void ClassChange(string nuclass) { _chaClass = nuclass; }
         public void HitDiceChange(int die) { _hitDie = die; }
+        public void BackgroundChange(string bg) { _chaBackGround = bg; }
 
         public void NameChange(string nuName)
         {

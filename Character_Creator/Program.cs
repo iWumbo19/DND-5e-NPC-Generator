@@ -187,6 +187,10 @@ namespace Character_Creator
 
             player.PrintAllDump();
             BackstoryGenerator bsgen = new BackstoryGenerator(player);
+            player.BackgroundChange(bsgen.BackgroundOptions());
+
+            CharacterSheet myCharacterSheet = new CharacterSheet();
+            
 
             Console.WriteLine("\n\nGenerate New? [y:n]");
             string answer = Console.ReadLine();
