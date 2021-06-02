@@ -31,16 +31,24 @@ namespace Character_Creator
             {"Soldier" },
             {"Urchin" }
         };
-        private readonly List<string> backstoryBase = new List<string>()
-        {
-            {"Fill in holes" }
-        };
+        private readonly List<string> backstoryBase = new List<string>();
         private readonly List<string> homeTowns = new List<string>()
         {
-            {"Home Town 1" },
-            {"Home Town 2" },
-            {"Home Town 3" },
-            {"Home Town 4" }
+            {"a small fising village" },
+            {"in the country lord's estate" },
+            {"a magical \"college town\"" },
+            {"a prominent trading hub" },
+            {"a nomadic caravan" },
+            {"a religious ghetto" },
+            {"the kingdom's capital" },
+            {"the city slums" },
+            {"a mountain city" },
+            {"a military outpost" },
+            {"the local monestary" },
+            {"the kingdom's castle" },
+            {"the capital suburbs" },
+            {"a forest hamlet" },
+            {"a mining town" }
         };
         private readonly List<string> enemyBase = new List<string>()
         {
@@ -74,5 +82,10 @@ namespace Character_Creator
         {
             {"Fill in holes" }
         };
+
+        public BackstoryGenerator()
+        {
+            backstoryBase.Add(String.Format("Testing {0}", enemyBase[0]));
+        }
     }
 }
