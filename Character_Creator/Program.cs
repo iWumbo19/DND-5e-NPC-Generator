@@ -185,19 +185,13 @@ namespace Character_Creator
             player.UpdateAbilityMods();
             player.UpdateSkills();
 
-            player.PrintAllDump();
             BackstoryGenerator bsgen = new BackstoryGenerator(player);
             player.BackgroundChange(bsgen.BackgroundOptions());
+            player._chaBackStory = bsgen.BackgroundGenerator();
 
-            CharacterSheet myCharacterSheet = new CharacterSheet();
-            
-
-            Console.WriteLine("\n\nGenerate New? [y:n]");
-            string answer = Console.ReadLine();
-            if (answer == "y")
-            {
-                GenerateNew();
-            }
+            CharacterSheet mySheet = new CharacterSheet();
+            mySheet.InitializeSheet(player);
+            mySheet.ShowDialog();
         }
 
 

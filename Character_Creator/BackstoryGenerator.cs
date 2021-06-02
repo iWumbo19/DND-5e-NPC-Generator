@@ -132,9 +132,6 @@ namespace Character_Creator
             backstoryBase.Add(String.Format("\n\n{0}, a {1} {2}, was raised by their {3} in {4}. {5} ago, {6} attacked and gravely wounded their {3}." +
                 " {0} vowed to find the legendary weapon {7}, travel to {8}, and kill the man who ordered the attack on their {3}.",
                 player.NameReturn(), player.RaceReturn(), BackgroundOptions(), CharacterRelative(), HomeTowns(), TimeElapse(), GroupOfBaddies(), NameOfCoolWeapon(), EnemyBase()));
-
-            Console.WriteLine(backstoryBase[1]);
-            //Console.WriteLine(backstoryBase[lib.RandomRoll(backstoryBase.Count())]);
         }
 
         public string BackgroundOptions() { return backgroundOptions[lib.RandomRoll(backgroundOptions.Count())]; }
@@ -148,6 +145,8 @@ namespace Character_Creator
         public string NameOfCoolItem() { return nameOfCoolItem[lib.RandomRoll(nameOfCoolItem.Count())]; }
         public string CharacterRelative() { return characterRelative[lib.RandomRoll(characterRelative.Count())]; }
         public string GroupOfBaddies() { return groupOfBaddies[lib.RandomRoll(groupOfBaddies.Count())]; }
+
+        public string BackgroundGenerator() { return backstoryBase[lib.RandomRoll(backstoryBase.Count())]; }
 
         
     }

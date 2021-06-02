@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Character_Creator
 {
-    class Character
+    public class Character
     {
         //Lists containing proficiencies
-        protected List<string> _profLanguages = new List<string>();
-        protected List<string> _profTools = new List<string>();
-        protected List<string> _profWeapons = new List<string>();
-        protected List<string> _profArmor = new List<string>();
-        protected List<string> _chaResistances = new List<string>();
-        protected List<string> _chaAbilities = new List<string>();
+        public List<string> _profLanguages = new List<string>();
+        public List<string> _profTools = new List<string>();
+        public List<string> _profWeapons = new List<string>();
+        public List<string> _profArmor = new List<string>();
+        public List<string> _chaResistances = new List<string>();
+        public List<string> _chaAbilities = new List<string>();
 
         //Spell List (BETA)
-        protected List<string> _chaSpellList = new List<string>();
+        public List<string> _chaSpellList = new List<string>();
+        public string _chaBackStory;
 
         //Basic character information
         protected string _chaName;
@@ -824,6 +825,13 @@ namespace Character_Creator
             }
             else { _chaScore = 30; }
         }
+        public int StrengthScoreReturn() { return _strScore; }
+        public int DexterityScoreReturn() { return _dexScore; }
+        public int ConstitutionScoreReturn() { return _conScore; }
+        public int WisdomScoreReturn() { return _wisScore; }
+        public int IntelligenceScoreReturn() { return _intScore; }
+        public int CharismaScoreReturn() { return _chaScore; }
+
 
         //Returns Ability Modifiers
         public int ReturnStrMod() { return _strMod; }
@@ -895,6 +903,28 @@ namespace Character_Creator
         public string ClassReturn() { return _chaClass; }
         public string RaceReturn() { return _chaRace; }
         public string NameReturn() { return _chaName; }
+        public string SpeedReturn() { return _chaSpeed.ToString(); }
+        public string ACReturn() { return _chaAC.ToString(); }
+
+        //Returns Skill Mods
+        public int AcroSkillReturn() { return _acroScore; }
+        public int ArcanaSkillReturn() { return _arcanaScore; }
+        public int AnimalSkillReturn() { return _animalScore; }
+        public int AthleticsSkillReturn() { return _athleticsScore; }
+        public int DecpetionSkillReturn() { return _deceptionScore; }
+        public int HistorySkillReturn() { return _historyScore; }
+        public int InsightSkillReturn() { return _insightScore; }
+        public int IntimidationSkillReturn() { return _intimidationScore; }
+        public int InvestigationSkillReturn() { return _investigationScore; }
+        public int MedicineSkillReturn() { return _medicineScore; }
+        public int NatureSkillReturn() { return _natureScore; }
+        public int PerceptionSkillReturn() { return _perceptionScore; }
+        public int PerformanceSkillReturn() { return _performanceScore; }
+        public int PersuasionSkillReturn() { return _persuasionScore; }
+        public int ReligionSkillReturn() { return _religionScore; }
+        public int SlieghtSkillReturn() { return _slieghtScore; }
+        public int StealthSkillReturn() { return _stealthScore; }
+        public int SurvivalSkillReturn() { return _survivalScore; }
 
 
         //Methods to add things to lists
