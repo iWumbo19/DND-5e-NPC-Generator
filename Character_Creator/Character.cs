@@ -892,6 +892,8 @@ namespace Character_Creator
 
         //Returns Misc Stats
         public string ClassReturn() { return _chaClass; }
+        public string RaceReturn() { return _chaRace; }
+        public string NameReturn() { return _chaName; }
 
 
         //Methods to add things to lists

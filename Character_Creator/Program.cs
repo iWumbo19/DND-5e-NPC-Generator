@@ -15,6 +15,7 @@ namespace Character_Creator
         {
             Program pro = new Program();
             pro.GenerateNew();
+            
         }
 
         public void GenerateNew()
@@ -185,6 +186,8 @@ namespace Character_Creator
             player.UpdateSkills();
 
             player.PrintAllDump();
+            BackstoryGenerator bsgen = new BackstoryGenerator(player);
+
             Console.WriteLine("\n\nGenerate New? [y:n]");
             string answer = Console.ReadLine();
             if (answer == "y")
