@@ -178,12 +178,12 @@ namespace Character_Creator
             {"Druid" },
             {"Fighter" },
             {"Monk" },
-            //{"Paladin" },
-            //{"Ranger" },
-            //{"Rouge" },
-            //{"Sorcerer" },
-            //{"Warlock" },
-            //{"Wizard" }
+            {"Paladin" },
+            {"Ranger" },
+            {"Rouge" },
+            {"Sorcerer" },
+            {"Warlock" },
+            {"Wizard" }
         };
 
         //Lists containing PHB Subraces
